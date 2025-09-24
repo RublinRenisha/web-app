@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zennia - Cosmic Lecture Notes</title><link rel="icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: 
+                radial-gradient(ellipse at top left, #1a0033 0%, #000000 50%),
+                radial-gradient(ellipse at bottom right, #0f0f23 0%, #000000 50%),
+                linear-gradient(135deg, #000428 0%, #004e92 25%, #009ffd 50%, #00d2ff 75%, #3a7bd5 100%);
+            background-size: 100% 100%, 100% 100%, 400% 400%;
+            animation: galaxyShift 25s ease infinite;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        @keyframes galaxyShift {
+            0% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+            25% { background-position: 0% 0%, 0% 0%, 100% 50%; }
+            50% { background-position: 0% 0%, 0% 0%, 50% 100%; }
+            75% { background-position: 0% 0%, 0% 0%, 0% 100%; }
+            100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+        }
+        
+        /* Enhanced Starfield */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        .star.tiny {
+            width: 1px;
+            height: 1px;
+            animation-duration: 4s;
+        }
+        
+        .star.small {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 4px #fff;
+            animation-duration: 3s;
+        }
+        
+        .star.medium {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px #fff, 0 0 12px #00ffff;
+            animation-duration: 2s;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+            25% { opacity: 0.8; transform: scale(1.2) rotate(90deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            75% { opacity: 0.6; transform: scale(1.1) rotate(270deg); }
+        }
+        
+        /* Glittering particles */
+        .glitter {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff, #ffff00);
+            border-radius: 50%;
+            animation: glitterFloat 4s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes glitterFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Nebula effects */
+        .nebula {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: nebulaDrift 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(100px, -50px) scale(1.2) rotate(90deg); }
+            50% { transform: translate(-50px, 80px) scale(0.8) rotate(180deg); }
+            75% { transform: translate(-80px, -30px) scale(1.1) rotate(270deg); }
+        }
+        
+        /* Galaxy glass morphism */
+        .galaxy-glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 25px 45px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.1);
+        }
+        
+        /* Search bar cosmic glow */
+        .search-cosmic {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+        
+        /* File card hover effects */
+        .file-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(0, 255, 255, 0.05) 25%,
+                rgba(255, 0, 255, 0.05) 50%,
+                rgba(255, 255, 0, 0.05) 75%,
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: left 0.8s;
+        }
+        
+        .file-card:hover::before {
+            left: 100%;
+        }
+        
+        .file-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Tab animations */
+        .tab-active {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            border: 2px solid rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+        
+        .tab-inactive {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Floating button cosmic effect */
+        .float-cosmic {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d);
+            animation: floatBounce 3s ease-in-out infinite;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(0, 255, 255, 0.6);
+        }
+        
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+        
+        /* Sparkle effects */
+        .sparkle {
+            position: relative;
+        }
+        
+        .sparkle::after {
+            content: '✨';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+            animation: sparkleRotate 2s linear infinite;
+        }
+        
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        
+        /* File type icon animations */
+        .file-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .file-card:hover .file-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        /* Trending fire animation */
+        .fire-animation {
+            animation: fireFlicker 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fireFlicker {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+        
+        /* Bottom nav cosmic glow */
+        .nav-item {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item.active {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #00ffff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00ffff;
+        }
+        
+        /* AI suggestion glow */
+        .ai-glow {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.1),
+                rgba(255, 0, 255, 0.1));
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            animation: aiPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes aiPulse {
+            0%, 100% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); }
+        }
+        
+        /* Dropdown animations */
+        .dropdown-enter {
+            animation: dropdownEnter 0.3s ease-out;
+        }
+        
+        @keyframes dropdownEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Cosmic text glow */
+        .cosmic-text {
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cosmicTextFlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes cosmicTextFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="text-white relative pb-20">
+    <!-- Enhanced Starfield -->
+    <div class="stars" id="starfield"></div>
+    
+    <!-- Enhanced Nebula Effects -->
+    <div class="nebula w-96 h-96 bg-purple-500 top-10 left-10"></div>
+    <div class="nebula w-80 h-80 bg-blue-500 top-1/2 right-20"></div>
+    <div class="nebula w-72 h-72 bg-pink-500 bottom-20 left-1/3"></div>
+    
+    <!-- Glitter Container -->
+    <div id="glitterContainer"></div>
+    
+    <!-- Main Container -->
+    <div class="relative z-10 min-h-screen p-4">
+        <!-- Header -->
+        <div class="galaxy-glass rounded-3xl p-6 mb-6">
+            <h1 class="text-2xl font-bold mb-4 cosmic-text">📚 Cosmic Lecture Notes</h1>
+            
+            <!-- Smart Search Bar -->
+            <div class="search-cosmic rounded-2xl p-4 mb-4">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="text-2xl">🔍</div>
+                    <input type="text" placeholder="Search cosmic knowledge..." class="flex-1 bg-transparent text-white placeholder-gray-300 focus:outline-none text-lg">
+                    <button class="bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full px-4 py-2 text-sm font-semibold hover:scale-105 transition-transform">
+                        Search 🚀
+                    </button>
+                </div>
+                
+                <!-- Filter Dropdowns -->
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="relative">
+                        <select id="departmentFilter" class="w-full bg-white/10 rounded-xl px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-cyan-400" onchange="filterResults()">
+                            <option value="" style="color: white;">🏛️ Department</option>
+                            <option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="eee">EEE</option>
+                            <option value="aids">AI&DS</option>
+                            <option value="civil">Civil</option>
+                        </select>
+                    </div>
+                    <div class="relative">
+                        <select id="yearFilter" class="w-full bg-white/10 rounded-xl px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-cyan-400" onchange="filterResults()">
+                            <option value="">📅 Year</option>
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                        </select>
+                    </div>
+                    <div class="relative">
+                        <input type="text" id="subjectFilter" placeholder="Subject Code/Name" class="w-full bg-white/10 rounded-xl px-4 py-2 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400" oninput="filterResults()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AI Recommendations -->
+        <div class="ai-glow rounded-3xl p-6 mb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold flex items-center">
+                    🤖 AI Cosmic Suggestions
+                    <span class="ml-2 text-sm bg-cyan-500/20 rounded-full px-2 py-1 text-cyan-300 sparkle">Smart!</span>
+                </h2>
+                <button class="text-cyan-300 hover:text-white transition-colors">View All →</button>
+            </div>
+            <div class="flex space-x-4 overflow-x-auto pb-2">
+                <div class="flex-shrink-0 file-card rounded-2xl p-4 min-w-[200px]">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="text-2xl file-icon">📄</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm">Quantum Physics Notes</div>
+                            <div class="text-xs text-cyan-200">by Dr. Cosmic</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-green-300">95% match</span>
+                        <span class="text-yellow-300">⭐ 4.9</span>
+                    </div>
+                </div>
+                
+                <div class="flex-shrink-0 file-card rounded-2xl p-4 min-w-[200px]">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="text-2xl file-icon">📊</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm">Data Structures PPT</div>
+                            <div class="text-xs text-cyan-200">by CodeMaster</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-green-300">88% match</span>
+                        <span class="text-yellow-300">⭐ 4.7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="flex space-x-2 mb-6">
+            <button onclick="switchTab('files')" id="tab-files" class="tab-active rounded-2xl px-6 py-3 font-semibold transition-all duration-300">
+                📁 Files
+            </button>
+            <button onclick="switchTab('links')" id="tab-links" class="tab-inactive rounded-2xl px-6 py-3 font-semibold transition-all duration-300">
+                🔗 Links
+            </button>
+        </div>
+        
+        <!-- Files Tab Content -->
+        <div id="content-files" class="tab-content">
+            <!-- Trending Section -->
+            <div class="galaxy-glass rounded-3xl p-6 mb-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold flex items-center">
+                        🔥 Trending Now
+                        <span class="ml-2 fire-animation">🔥</span>
+                    </h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="file-card rounded-2xl p-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-3xl file-icon">📄</div>
+                            <div class="flex-1">
+                                <div class="font-bold text-lg">Advanced Algorithms Complete Notes</div>
+                                <div class="text-cyan-200 text-sm">by AlgoNinja • Computer Science • 3rd Year</div>
+                                <div class="flex items-center space-x-4 mt-2">
+                                    <span class="bg-red-500/20 text-red-300 px-2 py-1 rounded-full text-xs flex items-center">
+                                        🔥 Hot • 847 downloads
+                                    </span>
+                                    <span class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full text-xs">
+                                        ⭐ 4.9 (156 reviews)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-300">PDF • 2.4 MB</div>
+                                <div class="text-xs text-cyan-200">2 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="file-card rounded-2xl p-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-3xl file-icon">📊</div>
+                            <div class="flex-1">
+                                <div class="font-bold text-lg">Machine Learning Presentation</div>
+                                <div class="text-cyan-200 text-sm">by DataWizard • Computer Science • 4th Year</div>
+                                <div class="flex items-center space-x-4 mt-2">
+                                    <span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs flex items-center">
+                                        🚀 Rocket • 623 downloads
+                                    </span>
+                                    <span class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full text-xs">
+                                        ⭐ 4.8 (89 reviews)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-300">PPT • 15.7 MB</div>
+                                <div class="text-xs text-cyan-200">5 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Files -->
+            <div class="galaxy-glass rounded-3xl p-6">
+                <h2 class="text-xl font-bold mb-4 cosmic-text">All Cosmic Files</h2>
+                
+                <div id="filteredResults" class="space-y-4">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+                
+                <!-- No Results Message -->
+                <div id="noResults" class="hidden text-center py-12">
+                    <div class="text-6xl mb-4">🔍</div>
+                    <h3 class="text-xl font-bold text-cyan-300 mb-2">No Cosmic Files Found</h3>
+                    <p class="text-gray-400">Try adjusting your search filters or explore other subjects!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Links Tab Content -->
+        <div id="content-links" class="tab-content hidden">
+            <div class="galaxy-glass rounded-3xl p-6">
+                <h2 class="text-xl font-bold mb-4 cosmic-text">Educational Links Galaxy</h2>
+                
+                <div class="space-y-4">
+                    <div class="file-card rounded-2xl p-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
+                                🌐
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold">Khan Academy - Linear Algebra</div>
+                                <div class="text-cyan-200 text-sm">Comprehensive video series on linear algebra concepts</div>
+                                <div class="text-blue-300 text-sm mt-1">khanacademy.org/math/linear-algebra</div>
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <span class="bg-green-500/20 text-green-300 px-2 py-1 rounded-full text-xs">✅ Verified</span>
+                                    <span class="text-yellow-300 text-xs">⭐ 4.9</span>
+                                    <span class="text-gray-400 text-xs">shared by MathLover</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="file-card rounded-2xl p-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-600 rounded-xl flex items-center justify-center text-2xl">
+                                🎥
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold">MIT OpenCourseWare - Algorithms</div>
+                                <div class="text-cyan-200 text-sm">Free online course materials from MIT's algorithms class</div>
+                                <div class="text-blue-300 text-sm mt-1">ocw.mit.edu/courses/algorithms</div>
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs">🚀 Premium</span>
+                                    <span class="text-yellow-300 text-xs">⭐ 4.8</span>
+                                    <span class="text-gray-400 text-xs">shared by CodeNinja</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="file-card rounded-2xl p-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-600 rounded-xl flex items-center justify-center text-2xl">
+                                📚
+                            </div>
+                            <div class="flex-1">
+                                <div class="font-bold">Coursera - Machine Learning Course</div>
+                                <div class="text-cyan-200 text-sm">Andrew Ng's famous machine learning course</div>
+                                <div class="text-blue-300 text-sm mt-1">coursera.org/learn/machine-learning</div>
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <span class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full text-xs">🔥 Hot</span>
+                                    <span class="text-yellow-300 text-xs">⭐ 4.9</span>
+                                    <span class="text-gray-400 text-xs">shared by AIExplorer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Upload Button -->
+    <button class="fixed bottom-24 right-6 w-16 h-16 float-cosmic rounded-full flex items-center justify-center text-2xl shadow-2xl z-20 transition-all duration-300 hover:scale-110" onclick="showUploadModal()">
+        ➕
+    </button>
+    
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 galaxy-glass border-t border-white/10 z-20">
+        <div class="flex justify-around items-center py-3">
+            <button class="nav-item flex flex-col items-center space-y-1 p-2">
+                <div class="text-xl">🏠</div>
+                <div class="text-xs">Home</div>
+            </button>
+            <button class="nav-item flex flex-col items-center space-y-1 p-2">
+                <div class="text-xl">✅</div>
+                <div class="text-xs">Tasks</div>
+            </button>
+            <button class="nav-item active flex flex-col items-center space-y-1 p-2">
+                <div class="text-xl">📚</div>
+                <div class="text-xs">Notes</div>
+            </button>
+            <button class="nav-item flex flex-col items-center space-y-1 p-2">
+                <div class="text-xl">🤖</div>
+                <div class="text-xs">AI</div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="galaxy-glass rounded-3xl p-8 mx-4 max-w-md w-full">
+            <div class="text-center mb-6">
+                <div class="text-6xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold cosmic-text">Upload to Galaxy</h3>
+                <p class="text-cyan-200 mt-2">Share your cosmic knowledge with fellow students!</p>
+            </div>
+            
+            <div class="space-y-4">
+                <button class="w-full file-card rounded-2xl p-4 text-left hover:scale-105 transition-transform">
+                    <div class="flex items-center space-x-4">
+                        <div class="text-3xl">📄</div>
+                        <div>
+                            <div class="font-bold">Upload File</div>
+                            <div class="text-cyan-200 text-sm">PDF, DOC, PPT files</div>
+                        </div>
+                    </div>
+                </button>
+                
+                <button class="w-full file-card rounded-2xl p-4 text-left hover:scale-105 transition-transform">
+                    <div class="flex items-center space-x-4">
+                        <div class="text-3xl">🔗</div>
+                        <div>
+                            <div class="font-bold">Share Link</div>
+                            <div class="text-cyan-200 text-sm">Educational websites & resources</div>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+            <button onclick="closeUploadModal()" class="w-full mt-6 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 rounded-2xl py-3 font-semibold transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced starfield creation
+        function createEnhancedStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 200;
+            const starTypes = ['tiny', 'small', 'medium'];
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                const type = starTypes[Math.floor(Math.random() * starTypes.length)];
+                star.className = `star ${type}`;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        
+        // Create glitter particles
+        function createGlitter() {
+            const container = document.getElementById('glitterContainer');
+            
+            setInterval(() => {
+                for (let i = 0; i < 3; i++) {
+                    const glitter = document.createElement('div');
+                    glitter.className = 'glitter';
+                    glitter.style.left = Math.random() * 100 + '%';
+                    glitter.style.animationDelay = Math.random() * 4 + 's';
+                    container.appendChild(glitter);
+                    
+                    setTimeout(() => {
+                        if (container.contains(glitter)) {
+                            container.removeChild(glitter);
+                        }
+                    }, 4000);
+                }
+            }, 1500);
+        }
+        
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('[id^="tab-"]');
+            tabs.forEach(tab => {
+                tab.className = tab.className.replace('tab-active', 'tab-inactive');
+            });
+            
+            // Show selected content and activate tab
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).className = 
+                document.getElementById(`tab-${tabName}`).className.replace('tab-inactive', 'tab-active');
+            
+            createCosmicExplosion();
+        }
+        
+        // Upload modal functions
+        function showUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+            createCosmicExplosion();
+        }
+        
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+        }
+        
+        // Cosmic explosion effect
+        function createCosmicExplosion() {
+            for (let i = 0; i < 15; i++) {
+                const explosion = document.createElement('div');
+                explosion.className = 'absolute w-2 h-2 rounded-full pointer-events-none';
+                explosion.style.left = Math.random() * 100 + '%';
+                explosion.style.top = Math.random() * 100 + '%';
+                explosion.style.background = `radial-gradient(circle, ${['#00ffff', '#ff00ff', '#ffff00', '#00ff00'][Math.floor(Math.random() * 4)]}, transparent)`;
+                explosion.style.animation = `cosmicExplosion ${Math.random() * 2 + 1}s ease-out`;
+                explosion.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(explosion);
+                
+                setTimeout(() => {
+                    if (document.body.contains(explosion)) {
+                        document.body.removeChild(explosion);
+                    }
+                }, 2500);
+            }
+        }
+        
+        // Add cosmic explosion keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cosmicExplosion {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(3) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(6) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Subject Database
+        const subjectDatabase = [
+            // CSE Subjects
+            { code: 'CS101', name: 'Programming Fundamentals', dept: 'cse', year: '1', type: 'PDF', author: 'CodeMaster', rating: 4.8, downloads: 1250, size: '2.3 MB', time: '1 day ago', icon: '📄' },
+            { code: 'CS201', name: 'Data Structures & Algorithms', dept: 'cse', year: '2', type: 'PDF', author: 'AlgoNinja', rating: 4.9, downloads: 2100, size: '3.1 MB', time: '2 hours ago', icon: '📄' },
+            { code: 'CS301', name: 'Database Management Systems', dept: 'cse', year: '3', type: 'PPT', author: 'DataWizard', rating: 4.7, downloads: 890, size: '15.2 MB', time: '3 days ago', icon: '📊' },
+            { code: 'CS401', name: 'Machine Learning', dept: 'cse', year: '4', type: 'PDF', author: 'AIExplorer', rating: 4.9, downloads: 1800, size: '4.5 MB', time: '1 hour ago', icon: '📄' },
+            { code: 'CS302', name: 'Computer Networks', dept: 'cse', year: '3', type: 'DOC', author: 'NetGuru', rating: 4.6, downloads: 670, size: '2.8 MB', time: '5 days ago', icon: '📝' },
+            
+            // ECE Subjects
+            { code: 'EC101', name: 'Circuit Analysis', dept: 'ece', year: '1', type: 'PDF', author: 'CircuitPro', rating: 4.5, downloads: 540, size: '1.9 MB', time: '2 days ago', icon: '📄' },
+            { code: 'EC201', name: 'Digital Electronics', dept: 'ece', year: '2', type: 'PPT', author: 'DigitalExpert', rating: 4.7, downloads: 780, size: '12.4 MB', time: '1 day ago', icon: '📊' },
+            { code: 'EC301', name: 'Signal Processing', dept: 'ece', year: '3', type: 'PDF', author: 'SignalMaster', rating: 4.8, downloads: 920, size: '3.7 MB', time: '4 hours ago', icon: '📄' },
+            { code: 'EC401', name: 'VLSI Design', dept: 'ece', year: '4', type: 'DOC', author: 'VLSIGuru', rating: 4.6, downloads: 450, size: '5.2 MB', time: '1 week ago', icon: '📝' },
+            
+            // EEE Subjects
+            { code: 'EE101', name: 'Electrical Circuits', dept: 'eee', year: '1', type: 'PDF', author: 'ElectroMaster', rating: 4.4, downloads: 620, size: '2.1 MB', time: '3 days ago', icon: '📄' },
+            { code: 'EE201', name: 'Power Systems', dept: 'eee', year: '2', type: 'PPT', author: 'PowerExpert', rating: 4.6, downloads: 710, size: '18.3 MB', time: '2 days ago', icon: '📊' },
+            { code: 'EE301', name: 'Control Systems', dept: 'eee', year: '3', type: 'PDF', author: 'ControlGuru', rating: 4.7, downloads: 580, size: '3.4 MB', time: '1 day ago', icon: '📄' },
+            { code: 'EE401', name: 'Renewable Energy', dept: 'eee', year: '4', type: 'DOC', author: 'GreenTech', rating: 4.8, downloads: 390, size: '4.1 MB', time: '6 hours ago', icon: '📝' },
+            
+            // AI&DS Subjects
+            { code: 'AI101', name: 'Introduction to AI', dept: 'aids', year: '1', type: 'PDF', author: 'AIFounder', rating: 4.9, downloads: 1500, size: '2.7 MB', time: '3 hours ago', icon: '📄' },
+            { code: 'AI201', name: 'Data Science Fundamentals', dept: 'aids', year: '2', type: 'PPT', author: 'DataScientist', rating: 4.8, downloads: 1200, size: '22.1 MB', time: '1 day ago', icon: '📊' },
+            { code: 'AI301', name: 'Deep Learning', dept: 'aids', year: '3', type: 'PDF', author: 'DeepMind', rating: 4.9, downloads: 2200, size: '5.8 MB', time: '2 hours ago', icon: '📄' },
+            { code: 'AI401', name: 'Natural Language Processing', dept: 'aids', year: '4', type: 'DOC', author: 'NLPExpert', rating: 4.7, downloads: 890, size: '3.9 MB', time: '4 days ago', icon: '📝' },
+            
+            // Civil Subjects
+            { code: 'CE101', name: 'Engineering Mechanics', dept: 'civil', year: '1', type: 'PDF', author: 'MechEngineer', rating: 4.3, downloads: 480, size: '1.8 MB', time: '5 days ago', icon: '📄' },
+            { code: 'CE201', name: 'Structural Analysis', dept: 'civil', year: '2', type: 'PPT', author: 'StructuralPro', rating: 4.5, downloads: 560, size: '16.7 MB', time: '3 days ago', icon: '📊' },
+            { code: 'CE301', name: 'Concrete Technology', dept: 'civil', year: '3', type: 'PDF', author: 'ConcreteExpert', rating: 4.6, downloads: 420, size: '2.9 MB', time: '2 days ago', icon: '📄' },
+            { code: 'CE401', name: 'Transportation Engineering', dept: 'civil', year: '4', type: 'DOC', author: 'TransportGuru', rating: 4.4, downloads: 310, size: '3.6 MB', time: '1 week ago', icon: '📝' }
+        ];
+        
+        // Related Links Database
+        const linksDatabase = [
+            // CSE Links
+            { code: 'CS101', title: 'Python Programming Tutorial', url: 'python.org/tutorial', description: 'Official Python tutorial for beginners', verified: true },
+            { code: 'CS201', title: 'GeeksforGeeks DSA', url: 'geeksforgeeks.org/data-structures', description: 'Comprehensive DSA tutorials and practice', verified: true },
+            { code: 'CS301', title: 'MySQL Documentation', url: 'dev.mysql.com/doc', description: 'Complete MySQL database documentation', verified: true },
+            { code: 'CS401', title: 'Coursera ML Course', url: 'coursera.org/learn/machine-learning', description: 'Andrew Ng\'s famous ML course', verified: true },
+            
+            // ECE Links
+            { code: 'EC101', title: 'Circuit Simulator', url: 'circuitlab.com', description: 'Online circuit simulation tool', verified: true },
+            { code: 'EC201', title: 'Digital Logic Design', url: 'nand2tetris.org', description: 'Build computer from logic gates', verified: true },
+            
+            // AI&DS Links
+            { code: 'AI101', title: 'MIT AI Course', url: 'ocw.mit.edu/courses/artificial-intelligence', description: 'Free MIT AI course materials', verified: true },
+            { code: 'AI301', title: 'TensorFlow Tutorials', url: 'tensorflow.org/tutorials', description: 'Official TensorFlow deep learning tutorials', verified: true }
+        ];
+        
+        // Filter and display results
+        function filterResults() {
+            const dept = document.getElementById('departmentFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            const subject = document.getElementById('subjectFilter').value.toLowerCase();
+            const searchQuery = document.querySelector('input[placeholder="Search cosmic knowledge..."]').value.toLowerCase();
+            
+            let filteredSubjects = subjectDatabase.filter(item => {
+                const matchesDept = !dept || item.dept === dept;
+                const matchesYear = !year || item.year === year;
+                const matchesSubject = !subject || 
+                    item.code.toLowerCase().includes(subject) || 
+                    item.name.toLowerCase().includes(subject);
+                const matchesSearch = !searchQuery || 
+                    item.code.toLowerCase().includes(searchQuery) || 
+                    item.name.toLowerCase().includes(searchQuery) ||
+                    item.author.toLowerCase().includes(searchQuery);
+                
+                return matchesDept && matchesYear && matchesSubject && matchesSearch;
+            });
+            
+            displayResults(filteredSubjects);
+            createCosmicExplosion();
+        }
+        
+        // Display filtered results
+        function displayResults(subjects) {
+            const container = document.getElementById('filteredResults');
+            const noResults = document.getElementById('noResults');
+            
+            if (subjects.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            container.innerHTML = subjects.map(subject => {
+                const relatedLinks = linksDatabase.filter(link => link.code === subject.code);
+                const linksHtml = relatedLinks.length > 0 ? 
+                    `<div class="mt-3 pt-3 border-t border-cyan-500/20">
+                        <div class="text-xs text-cyan-300 mb-2">📎 Related Links:</div>
+                        ${relatedLinks.map(link => 
+                            `<a href="#" class="block text-xs text-blue-300 hover:text-blue-200 mb-1" onclick="openLink('${link.url}')">
+                                🔗 ${link.title} - ${link.description}
+                            </a>`
+                        ).join('')}
+                    </div>` : '';
+                
+                return `
+                    <div class="file-card rounded-2xl p-4" onclick="openSubject('${subject.code}')">
+                        <div class="flex items-center space-x-4">
+                            <div class="text-3xl file-icon">${subject.icon}</div>
+                            <div class="flex-1">
+                                <div class="font-bold">${subject.code} - ${subject.name}</div>
+                                <div class="text-cyan-200 text-sm">by ${subject.author} • ${subject.dept.toUpperCase()} • Year ${subject.year}</div>
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <span class="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs">${subject.type}</span>
+                                    <span class="text-yellow-300 text-xs">⭐ ${subject.rating}</span>
+                                    <span class="text-gray-400 text-xs">${subject.downloads} downloads</span>
+                                </div>
+                                ${linksHtml}
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-gray-300">${subject.size}</div>
+                                <div class="text-xs text-cyan-200">${subject.time}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Open subject details
+        function openSubject(code) {
+            const subject = subjectDatabase.find(s => s.code === code);
+            if (subject) {
+                alert(`Opening ${subject.code} - ${subject.name}\n\nThis would typically download the PDF or open the file viewer.`);
+                createCosmicExplosion();
+            }
+        }
+        
+        // Open external link
+        function openLink(url) {
+            alert(`Opening: https://${url}\n\nThis would typically open the educational resource in a new tab.`);
+            createCosmicExplosion();
+        }
+        
+        // Initialize all effects
+        createEnhancedStarfield();
+        createGlitter();
+        
+        // Display all subjects initially
+        displayResults(subjectDatabase);
+        
+        // Initial cosmic explosion
+        setTimeout(createCosmicExplosion, 1000);
+        
+        // Random cosmic explosions
+        setInterval(() => {
+            if (Math.random() < 0.3) {
+                createCosmicExplosion();
+            }
+        }, 8000);
+        
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const uploadModal = document.getElementById('uploadModal');
+            if (event.target === uploadModal) {
+                closeUploadModal();
+            }
+        });
+        
+        // Add file card click handlers
+        document.querySelectorAll('.file-card').forEach(card => {
+            card.addEventListener('click', function() {
+                createCosmicExplosion();
+                // Here you would typically open the file or show more details
+            });
+        });
+        
+        // Add search functionality
+        document.querySelector('input[placeholder="Search cosmic knowledge..."]').addEventListener('input', function(e) {
+            filterResults();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e664ac03fbdc57',t:'MTc1Nzc1MzM4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zennia - Cosmic Profile</title><link rel="icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: 
+                radial-gradient(ellipse at top left, #1a0033 0%, #000000 50%),
+                radial-gradient(ellipse at bottom right, #0f0f23 0%, #000000 50%),
+                linear-gradient(135deg, #000428 0%, #004e92 25%, #009ffd 50%, #00d2ff 75%, #3a7bd5 100%);
+            background-size: 100% 100%, 100% 100%, 400% 400%;
+            animation: galaxyShift 30s ease infinite;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        @keyframes galaxyShift {
+            0% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+            25% { background-position: 0% 0%, 0% 0%, 100% 50%; }
+            50% { background-position: 0% 0%, 0% 0%, 50% 100%; }
+            75% { background-position: 0% 0%, 0% 0%, 0% 100%; }
+            100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+        }
+        
+        /* Enhanced Starfield */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        .star.tiny {
+            width: 1px;
+            height: 1px;
+            animation-duration: 4s;
+        }
+        
+        .star.small {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 4px #fff;
+            animation-duration: 3s;
+        }
+        
+        .star.medium {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 6px #fff, 0 0 12px #00ffff;
+            animation-duration: 2s;
+        }
+        
+        .star.large {
+            width: 4px;
+            height: 4px;
+            box-shadow: 0 0 8px #fff, 0 0 16px #00ffff, 0 0 24px #ff00ff;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+            25% { opacity: 0.8; transform: scale(1.2) rotate(90deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            75% { opacity: 0.6; transform: scale(1.1) rotate(270deg); }
+        }
+        
+        /* Glittering particles */
+        .glitter {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff, #ffff00);
+            border-radius: 50%;
+            animation: glitterFloat 5s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes glitterFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Cosmic nebula effects */
+        .nebula {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: nebulaDrift 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(150px, -100px) scale(1.3) rotate(90deg); }
+            50% { transform: translate(-100px, 120px) scale(0.7) rotate(180deg); }
+            75% { transform: translate(-120px, -80px) scale(1.1) rotate(270deg); }
+        }
+        
+        /* Galaxy glass morphism */
+        .galaxy-glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(0, 255, 255, 0.1);
+        }
+        
+        /* Profile picture cosmic glow */
+        .profile-glow {
+            position: relative;
+            animation: profilePulse 4s ease-in-out infinite;
+        }
+        
+        .profile-glow::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b6b);
+            border-radius: 50%;
+            z-index: -1;
+            animation: borderRotate 3s linear infinite;
+        }
+        
+        .profile-glow::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: conic-gradient(from 180deg, #00ffff, #ff00ff, #ffff00, #00ff00, #00ffff);
+            border-radius: 50%;
+            z-index: -2;
+            animation: borderRotate 4s linear infinite reverse;
+            opacity: 0.7;
+        }
+        
+        @keyframes profilePulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 60px rgba(0, 255, 255, 0.3),
+                    0 0 90px rgba(0, 255, 255, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 0 50px rgba(0, 255, 255, 0.8),
+                    0 0 100px rgba(0, 255, 255, 0.5),
+                    0 0 150px rgba(0, 255, 255, 0.3);
+            }
+        }
+        
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* XP Progress bar animation */
+        .xp-progress {
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d);
+            background-size: 200% 100%;
+            animation: progressFlow 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .xp-progress::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes progressShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Tab animations */
+        .tab-active {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        .tab-inactive {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Badge hover effects */
+        .badge-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        
+        .badge-hover:hover {
+            transform: translateY(-10px) scale(1.2) rotate(10deg);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.6);
+        }
+        
+        /* Floating animations */
+        .float-gentle {
+            animation: floatGentle 8s ease-in-out infinite;
+        }
+        
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-8px) rotate(0deg); }
+            75% { transform: translateY(-20px) rotate(-2deg); }
+        }
+        
+        /* Sparkle effects */
+        .sparkle {
+            position: relative;
+        }
+        
+        .sparkle::after {
+            content: '✨';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 16px;
+            animation: sparkleRotate 3s linear infinite;
+        }
+        
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            50% { transform: rotate(180deg) scale(1.3); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        
+        /* Modal animations */
+        .modal-enter {
+            animation: modalEnter 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes modalEnter {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-15deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1) rotate(8deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        /* AI Assistant cosmic pulse */
+        .ai-cosmic-pulse {
+            animation: aiCosmicPulse 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .ai-cosmic-pulse::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: conic-gradient(from 0deg, #00ffff, #ff00ff, #ffff00, #00ff00, #00ffff);
+            border-radius: 50%;
+            z-index: -1;
+            animation: borderRotate 2s linear infinite;
+        }
+        
+        @keyframes aiCosmicPulse {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(0, 255, 255, 0.9);
+                transform: scale(1.1);
+            }
+        }
+        
+        /* Timeline card effects */
+        .timeline-card {
+            position: relative;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(0, 255, 255, 0.05) 25%,
+                rgba(255, 0, 255, 0.05) 50%,
+                rgba(255, 255, 0, 0.05) 75%,
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .timeline-card:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: conic-gradient(from 0deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            animation: borderRotate 2s linear infinite;
+        }
+        
+        /* Cosmic text glow */
+        .cosmic-text {
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cosmicTextFlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes cosmicTextFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Shooting stars */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #fff, transparent);
+            border-radius: 50%;
+            animation: shoot 5s linear infinite;
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: translateX(-100px) translateY(-100px);
+                opacity: 0;
+                box-shadow: 0 0 0 #fff;
+            }
+            10% {
+                opacity: 1;
+                box-shadow: 0 0 15px #fff, 0 0 30px #00ffff;
+            }
+            90% {
+                opacity: 1;
+                box-shadow: 0 0 15px #fff, 0 0 30px #00ffff;
+            }
+            100% {
+                transform: translateX(120vw) translateY(120vh);
+                opacity: 0;
+                box-shadow: 0 0 0 #fff;
+            }
+        }
+    </style>
+</head>
+<body class="text-white relative">
+    <!-- Enhanced Starfield -->
+    <div class="stars" id="starfield"></div>
+    
+    <!-- Enhanced Nebula Effects -->
+    <div class="nebula w-96 h-96 bg-purple-500 top-10 left-10"></div>
+    <div class="nebula w-80 h-80 bg-blue-500 top-1/2 right-20"></div>
+    <div class="nebula w-72 h-72 bg-pink-500 bottom-20 left-1/3"></div>
+    <div class="nebula w-64 h-64 bg-yellow-500 top-1/4 left-1/2"></div>
+    <div class="nebula w-88 h-88 bg-green-500 bottom-10 right-10"></div>
+    
+    <!-- Glitter Container -->
+    <div id="glitterContainer"></div>
+    
+    <!-- Shooting Stars -->
+    <div id="shootingStars"></div>
+    
+    <!-- Main Container -->
+    <div class="relative z-10 min-h-screen p-4">
+        <!-- Profile Header -->
+        <div class="galaxy-glass rounded-3xl p-8 mb-6 text-center float-gentle">
+            <!-- Profile Picture -->
+            <div class="relative inline-block mb-6">
+                <div class="profile-glow w-32 h-32 rounded-full mx-auto overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex items-center justify-center text-5xl">
+                        👨‍🚀
+                    </div>
+                </div>
+                <!-- Status indicator -->
+                <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-sm font-bold text-black sparkle">
+                    🔥
+                </div>
+            </div>
+            
+            <!-- User Title -->
+            <h1 class="text-3xl font-bold mb-2 cosmic-text">Saghi, the Quiz Crusher</h1>
+            <p class="text-cyan-200 text-lg mb-4">🌌 Cosmic Scholar • Level 47 • Night Owl 🌙</p>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-6">
+                <!-- XP Points -->
+                <div class="galaxy-glass rounded-2xl p-4">
+                    <div class="text-2xl font-bold cosmic-text">2,847</div>
+                    <div class="text-sm text-cyan-200 mb-2">XP Points</div>
+                    <div class="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <div class="xp-progress h-full rounded-full" style="width: 73%"></div>
+                    </div>
+                    <div class="text-xs text-cyan-300 mt-1">73% to next level</div>
+                </div>
+                
+                <!-- Badges -->
+                <div class="galaxy-glass rounded-2xl p-4">
+                    <div class="text-2xl font-bold cosmic-text">12</div>
+                    <div class="text-sm text-cyan-200 mb-2">Badges</div>
+                    <div class="flex justify-center space-x-1">
+                        <div class="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-xs">🏆</div>
+                        <div class="w-6 h-6 rounded-full bg-purple-400 flex items-center justify-center text-xs">⭐</div>
+                        <div class="w-6 h-6 rounded-full bg-green-400 flex items-center justify-center text-xs">🎯</div>
+                    </div>
+                </div>
+                
+                <!-- Streak -->
+                <div class="galaxy-glass rounded-2xl p-4">
+                    <div class="text-2xl font-bold cosmic-text">15</div>
+                    <div class="text-sm text-cyan-200 mb-2">Day Streak</div>
+                    <div class="flex justify-center">
+                        <div class="text-2xl sparkle">🔥</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <div class="flex space-x-2 mb-6 overflow-x-auto">
+            <button onclick="switchTab('details')" id="tab-details" class="tab-active rounded-2xl px-6 py-3 font-semibold whitespace-nowrap transition-all duration-300">
+                📋 Details
+            </button>
+            <button onclick="switchTab('badges')" id="tab-badges" class="tab-inactive rounded-2xl px-6 py-3 font-semibold whitespace-nowrap transition-all duration-300">
+                🏅 Badges
+            </button>
+            <button onclick="switchTab('achievements')" id="tab-achievements" class="tab-inactive rounded-2xl px-6 py-3 font-semibold whitespace-nowrap transition-all duration-300">
+                🎖️ Achievements
+            </button>
+            <button onclick="switchTab('tasks')" id="tab-tasks" class="tab-inactive rounded-2xl px-6 py-3 font-semibold whitespace-nowrap transition-all duration-300">
+                ✅ Tasks
+            </button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div id="content-details" class="tab-content">
+            <div class="galaxy-glass rounded-3xl p-6 space-y-4">
+                <h2 class="text-2xl font-bold mb-6 cosmic-text">Cosmic Profile Details</h2>
+                
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <span class="text-cyan-200">Full Name</span>
+                        <span class="font-semibold">Saghi</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <span class="text-cyan-200">Register ID</span>
+                        <span class="font-semibold">960222104110</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <span class="text-cyan-200">Current Vibe</span>
+                        <span class="font-semibold">Night Owl 🌙</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <span class="text-cyan-200">Joined Galaxy</span>
+                        <span class="font-semibold">September 2025</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <span class="text-cyan-200">Favorite Subject</span>
+                        <span class="font-semibold">Quantum Physics 🔬</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="content-badges" class="tab-content hidden">
+            <div class="galaxy-glass rounded-3xl p-6">
+                <h2 class="text-2xl font-bold mb-6 cosmic-text">Badge Collection</h2>
+                
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="badge-hover galaxy-glass rounded-2xl p-4 text-center" onclick="showBadgeModal('quiz-master')">
+                        <div class="text-4xl mb-2 sparkle">🧠</div>
+                        <div class="text-sm font-semibold">Quiz Master</div>
+                        <div class="text-xs text-cyan-200">Level 5</div>
+                    </div>
+                    
+                    <div class="badge-hover galaxy-glass rounded-2xl p-4 text-center" onclick="showBadgeModal('streak-legend')">
+                        <div class="text-4xl mb-2 sparkle">🔥</div>
+                        <div class="text-sm font-semibold">Streak Legend</div>
+                        <div class="text-xs text-cyan-200">15 Days</div>
+                    </div>
+                    
+                    <div class="badge-hover galaxy-glass rounded-2xl p-4 text-center" onclick="showBadgeModal('note-ninja')">
+                        <div class="text-4xl mb-2 sparkle">📝</div>
+                        <div class="text-sm font-semibold">Note Ninja</div>
+                        <div class="text-xs text-cyan-200">Expert</div>
+                    </div>
+                    
+                    <div class="badge-hover galaxy-glass rounded-2xl p-4 text-center" onclick="showBadgeModal('speed-demon')">
+                        <div class="text-4xl mb-2 sparkle">⚡</div>
+                        <div class="text-sm font-semibold">Speed Demon</div>
+                        <div class="text-xs text-cyan-200">Lightning</div>
+                    </div>
+                    
+                    <div class="badge-hover galaxy-glass rounded-2xl p-4 text-center" onclick="showBadgeModal('cosmic-explorer')">
+                        <div class="text-4xl mb-2 sparkle">🚀</div>
+                        <div class="text-sm font-semibold">Cosmic Explorer</div>
+                        <div class="text-xs text-cyan-200">Legendary</div>
+                    </div>
+                    
+                    <div class="galaxy-glass rounded-2xl p-4 text-center opacity-50">
+                        <div class="text-4xl mb-2">🔒</div>
+                        <div class="text-sm font-semibold">Mystery Badge</div>
+                        <div class="text-xs text-gray-400">Locked</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="content-achievements" class="tab-content hidden">
+            <div class="galaxy-glass rounded-3xl p-6">
+                <h2 class="text-2xl font-bold mb-6 cosmic-text">Cosmic Achievements</h2>
+                
+                <div class="space-y-4">
+                    <div class="galaxy-glass rounded-2xl p-4 flex items-center space-x-4">
+                        <div class="text-3xl sparkle">🏆</div>
+                        <div class="flex-1">
+                            <div class="font-bold text-lg">The Quiz Crusher</div>
+                            <div class="text-cyan-200 text-sm">Demolished 100+ quizzes with cosmic precision</div>
+                        </div>
+                        <div class="text-yellow-400 font-bold">ACTIVE</div>
+                    </div>
+                    
+                    <div class="galaxy-glass rounded-2xl p-4 flex items-center space-x-4">
+                        <div class="text-3xl sparkle">🌟</div>
+                        <div class="flex-1">
+                            <div class="font-bold text-lg">Stellar Student</div>
+                            <div class="text-cyan-200 text-sm">Maintained 90%+ average across all subjects</div>
+                        </div>
+                        <div class="text-green-400 font-bold">EARNED</div>
+                    </div>
+                    
+                    <div class="galaxy-glass rounded-2xl p-4 flex items-center space-x-4">
+                        <div class="text-3xl sparkle">🎯</div>
+                        <div class="flex-1">
+                            <div class="font-bold text-lg">Goal Annihilator</div>
+                            <div class="text-cyan-200 text-sm">Completed 50 daily missions in a row</div>
+                        </div>
+                        <div class="text-purple-400 font-bold">EARNED</div>
+                    </div>
+                    
+                    <div class="galaxy-glass rounded-2xl p-4 flex items-center space-x-4 opacity-50">
+                        <div class="text-3xl">🌌</div>
+                        <div class="flex-1">
+                            <div class="font-bold text-lg">Galaxy Guardian</div>
+                            <div class="text-gray-400 text-sm">Help 100 fellow students (Progress: 67/100)</div>
+                        </div>
+                        <div class="text-gray-400 font-bold">67%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="content-tasks" class="tab-content hidden">
+            <div class="galaxy-glass rounded-3xl p-6">
+                <h2 class="text-2xl font-bold mb-6 cosmic-text">Mission Timeline</h2>
+                
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-400 to-pink-400"></div>
+                    
+                    <div class="space-y-6 ml-12">
+                        <div class="timeline-card rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-bold">Quantum Physics Quiz</div>
+                                <div class="text-sm text-cyan-200">2 hours ago</div>
+                            </div>
+                            <div class="text-sm text-gray-300 mb-2">Scored 95% - Absolutely crushed it! 🚀</div>
+                            <div class="flex space-x-2">
+                                <span class="bg-green-500/20 text-green-300 px-2 py-1 rounded-full text-xs">+50 XP</span>
+                                <span class="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded-full text-xs">Perfect Score</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-card rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-bold">Upload Study Notes</div>
+                                <div class="text-sm text-cyan-200">5 hours ago</div>
+                            </div>
+                            <div class="text-sm text-gray-300 mb-2">Shared cosmic calculus notes - Mind-blowing! ✨</div>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs">+30 XP</span>
+                                <span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs">Helpful</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-card rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-bold">Daily Flashcards</div>
+                                <div class="text-sm text-cyan-200">Yesterday</div>
+                            </div>
+                            <div class="text-sm text-gray-300 mb-2">Completed 15/10 cards - Overachiever mode! 🎯</div>
+                            <div class="flex space-x-2">
+                                <span class="bg-cyan-500/20 text-cyan-300 px-2 py-1 rounded-full text-xs">+25 XP</span>
+                                <span class="bg-orange-500/20 text-orange-300 px-2 py-1 rounded-full text-xs">Bonus</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-card rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-bold">Group Study Session</div>
+                                <div class="text-sm text-cyan-200">2 days ago</div>
+                            </div>
+                            <div class="text-sm text-gray-300 mb-2">Led astronomy discussion - Future NASA scientist! 🌌</div>
+                            <div class="flex space-x-2">
+                                <span class="bg-pink-500/20 text-pink-300 px-2 py-1 rounded-full text-xs">+40 XP</span>
+                                <span class="bg-red-500/20 text-red-300 px-2 py-1 rounded-full text-xs">Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating AI Assistant -->
+    <button id="aiAssistant" class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full flex items-center justify-center text-2xl shadow-2xl ai-cosmic-pulse z-20 transition-all duration-300 hover:scale-110" onclick="toggleAI()">
+        🤖
+    </button>
+    
+    <!-- AI Chat Popup -->
+    <div id="aiChat" class="fixed bottom-24 right-6 w-80 galaxy-glass rounded-3xl p-6 z-20 hidden modal-enter">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg cosmic-text">Cosmic AI Buddy 🌌</h3>
+            <button onclick="toggleAI()" class="text-gray-400 hover:text-white">✕</button>
+        </div>
+        <div class="space-y-3 mb-4 max-h-40 overflow-y-auto">
+            <div class="bg-blue-500/20 rounded-2xl p-3 text-sm">
+                Yo Saghi! 🚀 You're absolutely crushing it today! That 95% on the quantum quiz was INSANE! 🔥
+            </div>
+            <div class="bg-purple-500/20 rounded-2xl p-3 text-sm">
+                Fun fact: You're only 153 XP away from unlocking the "Galaxy Guardian" achievement! Keep helping your study buddies! 🌟
+            </div>
+            <div class="bg-cyan-500/20 rounded-2xl p-3 text-sm">
+                Pro tip: Your night owl vibe is perfect for those late-night study sessions. The universe is quiet and your brain is in the zone! 🌙✨
+            </div>
+        </div>
+        <div class="flex space-x-2">
+            <input type="text" placeholder="Ask me anything cosmic..." class="flex-1 bg-white/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400">
+            <button class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 rounded-full px-4 py-2 text-sm font-semibold transition-colors">
+                Send 🚀
+            </button>
+        </div>
+    </div>
+    
+    <!-- Badge Modal -->
+    <div id="badgeModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="galaxy-glass rounded-3xl p-8 mx-4 max-w-sm w-full text-center modal-enter">
+            <div id="badgeIcon" class="text-8xl mb-4 sparkle">🧠</div>
+            <h3 id="badgeTitle" class="text-2xl font-bold mb-4 cosmic-text">Quiz Master</h3>
+            <p id="badgeDescription" class="text-cyan-200 mb-6">You've conquered the realm of knowledge! Your quiz-crushing skills are legendary across the galaxy. Keep flexing that cosmic brain power! 🚀✨</p>
+            <div class="bg-yellow-500/20 rounded-2xl p-4 mb-6">
+                <div class="text-sm text-yellow-300 font-semibold">Achievement Unlocked!</div>
+                <div class="text-xs text-yellow-200">Completed 50+ quizzes with 90%+ average</div>
+            </div>
+            <button onclick="closeBadgeModal()" class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 rounded-full px-6 py-3 font-semibold transition-all duration-300 transform hover:scale-105">
+                Awesome! 🌟
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Enhanced starfield creation
+        function createEnhancedStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 400;
+            const starTypes = ['tiny', 'small', 'medium', 'large'];
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                const type = starTypes[Math.floor(Math.random() * starTypes.length)];
+                star.className = `star ${type}`;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        
+        // Create glitter particles
+        function createGlitter() {
+            const container = document.getElementById('glitterContainer');
+            
+            setInterval(() => {
+                for (let i = 0; i < 8; i++) {
+                    const glitter = document.createElement('div');
+                    glitter.className = 'glitter';
+                    glitter.style.left = Math.random() * 100 + '%';
+                    glitter.style.animationDelay = Math.random() * 5 + 's';
+                    container.appendChild(glitter);
+                    
+                    setTimeout(() => {
+                        if (container.contains(glitter)) {
+                            container.removeChild(glitter);
+                        }
+                    }, 5000);
+                }
+            }, 800);
+        }
+        
+        // Create shooting stars
+        function createShootingStars() {
+            const container = document.getElementById('shootingStars');
+            
+            setInterval(() => {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                shootingStar.style.left = Math.random() * 100 + '%';
+                shootingStar.style.top = Math.random() * 50 + '%';
+                shootingStar.style.width = Math.random() * 200 + 150 + 'px';
+                shootingStar.style.height = '3px';
+                container.appendChild(shootingStar);
+                
+                setTimeout(() => {
+                    if (container.contains(shootingStar)) {
+                        container.removeChild(shootingStar);
+                    }
+                }, 5000);
+            }, 4000);
+        }
+        
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('[id^="tab-"]');
+            tabs.forEach(tab => {
+                tab.className = tab.className.replace('tab-active', 'tab-inactive');
+            });
+            
+            // Show selected content and activate tab
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).className = 
+                document.getElementById(`tab-${tabName}`).className.replace('tab-inactive', 'tab-active');
+            
+            createCosmicExplosion();
+        }
+        
+        // AI Assistant functions
+        function toggleAI() {
+            const aiChat = document.getElementById('aiChat');
+            const aiButton = document.getElementById('aiAssistant');
+            
+            if (aiChat.classList.contains('hidden')) {
+                aiChat.classList.remove('hidden');
+                aiButton.style.transform = 'scale(0.9) rotate(180deg)';
+            } else {
+                aiChat.classList.add('hidden');
+                aiButton.style.transform = 'scale(1) rotate(0deg)';
+            }
+        }
+        
+        // Badge modal functions
+        function showBadgeModal(badgeType) {
+            const modal = document.getElementById('badgeModal');
+            const icon = document.getElementById('badgeIcon');
+            const title = document.getElementById('badgeTitle');
+            const description = document.getElementById('badgeDescription');
+            
+            const badges = {
+                'quiz-master': {
+                    icon: '🧠',
+                    title: 'Quiz Master',
+                    description: 'You\'ve conquered the realm of knowledge! Your quiz-crushing skills are legendary across the galaxy. Keep flexing that cosmic brain power! 🚀✨'
+                },
+                'streak-legend': {
+                    icon: '🔥',
+                    title: 'Streak Legend',
+                    description: 'Fifteen days of pure dedication! Your consistency burns brighter than a supernova. The universe bows to your commitment! 🌟🔥'
+                },
+                'note-ninja': {
+                    icon: '📝',
+                    title: 'Note Ninja',
+                    description: 'Your note-taking skills are sharper than a lightsaber! You\'ve mastered the art of capturing cosmic knowledge with style! ⚡📚'
+                },
+                'speed-demon': {
+                    icon: '⚡',
+                    title: 'Speed Demon',
+                    description: 'Lightning fast and accurate! You complete tasks at warp speed while maintaining stellar quality. The Flash would be jealous! 🏃‍♂️💨'
+                },
+                'cosmic-explorer': {
+                    icon: '🚀',
+                    title: 'Cosmic Explorer',
+                    description: 'You\'ve ventured into the deepest corners of knowledge! Your curiosity knows no bounds, true explorer of the academic universe! 🌌🔭'
+                }
+            };
+            
+            const badgeData = badges[badgeType];
+            icon.textContent = badgeData.icon;
+            title.textContent = badgeData.title;
+            description.textContent = badgeData.description;
+            
+            modal.classList.remove('hidden');
+            createMassiveCosmicExplosion();
+        }
+        
+        function closeBadgeModal() {
+            document.getElementById('badgeModal').classList.add('hidden');
+        }
+        
+        // Cosmic explosion effects
+        function createCosmicExplosion() {
+            for (let i = 0; i < 25; i++) {
+                const explosion = document.createElement('div');
+                explosion.className = 'absolute w-3 h-3 rounded-full pointer-events-none';
+                explosion.style.left = Math.random() * 100 + '%';
+                explosion.style.top = Math.random() * 100 + '%';
+                explosion.style.background = `radial-gradient(circle, ${['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff6b6b'][Math.floor(Math.random() * 5)]}, transparent)`;
+                explosion.style.animation = `cosmicExplosion ${Math.random() * 2 + 1}s ease-out`;
+                explosion.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(explosion);
+                
+                setTimeout(() => {
+                    if (document.body.contains(explosion)) {
+                        document.body.removeChild(explosion);
+                    }
+                }, 3000);
+            }
+        }
+        
+        function createMassiveCosmicExplosion() {
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => createCosmicExplosion(), i * 50);
+            }
+        }
+        
+        // Add cosmic explosion keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cosmicExplosion {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(4) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(8) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize all effects
+        createEnhancedStarfield();
+        createGlitter();
+        createShootingStars();
+        
+        // Initial cosmic explosion
+        setTimeout(createCosmicExplosion, 2000);
+        
+        // Random cosmic explosions
+        setInterval(() => {
+            if (Math.random() < 0.2) {
+                createCosmicExplosion();
+            }
+        }, 8000);
+        
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            const badgeModal = document.getElementById('badgeModal');
+            const aiChat = document.getElementById('aiChat');
+            
+            if (event.target === badgeModal) {
+                closeBadgeModal();
+            }
+            
+            if (!aiChat.contains(event.target) && !document.getElementById('aiAssistant').contains(event.target)) {
+                if (!aiChat.classList.contains('hidden')) {
+                    toggleAI();
+                }
+            }
+        });
+        
+        // Dynamic title rotation
+        const titles = [
+            'Saghi, the Quiz Crusher',
+            'Saghi, the Cosmic Scholar',
+            'Saghi, the Knowledge Ninja',
+            'Saghi, the Study Superstar',
+            'Saghi, the Academic Astronaut'
+        ];
+        
+        let currentTitleIndex = 0;
+        setInterval(() => {
+            const titleElement = document.querySelector('.cosmic-text');
+            if (titleElement && titleElement.textContent.includes('Saghi')) {
+                currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+                titleElement.textContent = titles[currentTitleIndex];
+            }
+        }, 10000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e5fc7086b77ed4',t:'MTc1Nzc0OTExNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

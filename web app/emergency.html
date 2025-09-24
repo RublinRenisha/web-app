@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Zone 🚨 - Cosmic Campus Hub</title><link rel="icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: 
+                radial-gradient(ellipse at top left, #1a0033 0%, #000000 50%),
+                radial-gradient(ellipse at bottom right, #0f0f23 0%, #000000 50%),
+                radial-gradient(ellipse at center, #2d1b69 0%, #000000 70%),
+                linear-gradient(135deg, #000428 0%, #004e92 25%, #009ffd 50%, #00d2ff 75%, #3a7bd5 100%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 400% 400%;
+            animation: galaxyShift 20s ease infinite;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        @keyframes galaxyShift {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+            25% { background-position: 0% 0%, 0% 0%, 0% 0%, 100% 50%; }
+            50% { background-position: 0% 0%, 0% 0%, 0% 0%, 50% 100%; }
+            75% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 100%; }
+            100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 50%; }
+        }
+        
+        /* Enhanced Starfield */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        
+        .star.tiny {
+            width: 1px;
+            height: 1px;
+            animation-duration: 4s;
+            box-shadow: 0 0 2px #fff;
+        }
+        
+        .star.small {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 6px #fff, 0 0 12px #00ffff;
+            animation-duration: 3s;
+        }
+        
+        .star.medium {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 8px #fff, 0 0 16px #00ffff, 0 0 24px #ff00ff;
+            animation-duration: 2s;
+        }
+        
+        .star.large {
+            width: 4px;
+            height: 4px;
+            box-shadow: 0 0 10px #fff, 0 0 20px #00ffff, 0 0 30px #ff00ff, 0 0 40px #ffff00;
+            animation-duration: 5s;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+            25% { opacity: 0.8; transform: scale(1.2) rotate(90deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            75% { opacity: 0.6; transform: scale(1.1) rotate(270deg); }
+        }
+        
+        /* Shooting Stars */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #fff, #00ffff);
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffff;
+            animation: shootingStar 3s linear infinite;
+        }
+        
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(-100px) translateY(100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw) translateY(-100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced Glittering particles */
+        .glitter {
+            position: absolute;
+            border-radius: 50%;
+            animation: glitterFloat 6s linear infinite;
+            pointer-events: none;
+        }
+        
+        .glitter.small {
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff);
+            box-shadow: 0 0 4px currentColor;
+        }
+        
+        .glitter.medium {
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff, #ffff00);
+            box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+        }
+        
+        .glitter.large {
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff, #ffff00, #00ff00);
+            box-shadow: 0 0 12px currentColor, 0 0 24px currentColor, 0 0 36px currentColor;
+        }
+        
+        @keyframes glitterFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Cosmic Dust Particles */
+        .cosmic-dust {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: cosmicDrift 15s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes cosmicDrift {
+            0% {
+                transform: translateX(-10px) translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(10px) translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced Nebula effects */
+        .nebula {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: nebulaDrift 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(150px, -80px) scale(1.3) rotate(90deg); }
+            50% { transform: translate(-80px, 120px) scale(0.7) rotate(180deg); }
+            75% { transform: translate(-120px, -50px) scale(1.2) rotate(270deg); }
+        }
+        
+        /* Pulsing Cosmic Orbs */
+        .cosmic-orb {
+            position: fixed;
+            border-radius: 50%;
+            animation: orbPulse 8s ease-in-out infinite;
+            pointer-events: none;
+            filter: blur(40px);
+        }
+        
+        @keyframes orbPulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Galaxy glass morphism with cosmic glow */
+        .galaxy-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 25px 45px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 50px rgba(0, 255, 255, 0.1),
+                0 0 100px rgba(255, 0, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .galaxy-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Cosmic title with animated gradient */
+        .cosmic-title {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #ff00ff, #ffff00, #00ff00, #ff6b6b, #4ecdc4);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cosmicTextFlow 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+            position: relative;
+        }
+        
+        @keyframes cosmicTextFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .cosmic-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: titleShimmer 2s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes titleShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Gen Z Subtitle */
+        .gen-z-subtitle {
+            font-family: 'Fredoka', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: genZFlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes genZFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Emergency urgency glows */
+        .urgency-low {
+            border: 2px solid rgba(34, 197, 94, 0.6);
+            box-shadow: 
+                0 0 30px rgba(34, 197, 94, 0.3),
+                inset 0 0 20px rgba(34, 197, 94, 0.1);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+        }
+        
+        .urgency-medium {
+            border: 2px solid rgba(251, 191, 36, 0.6);
+            box-shadow: 
+                0 0 30px rgba(251, 191, 36, 0.3),
+                inset 0 0 20px rgba(251, 191, 36, 0.1);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));
+            animation: mediumPulse 2s ease-in-out infinite;
+        }
+        
+        .urgency-high {
+            border: 2px solid rgba(239, 68, 68, 0.8);
+            box-shadow: 
+                0 0 40px rgba(239, 68, 68, 0.5),
+                0 0 80px rgba(239, 68, 68, 0.2),
+                inset 0 0 30px rgba(239, 68, 68, 0.1);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.08));
+            animation: highPulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes mediumPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(251, 191, 36, 0.3),
+                    inset 0 0 20px rgba(251, 191, 36, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 40px rgba(251, 191, 36, 0.5),
+                    inset 0 0 30px rgba(251, 191, 36, 0.2);
+            }
+        }
+        
+        @keyframes highPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px rgba(239, 68, 68, 0.5),
+                    0 0 80px rgba(239, 68, 68, 0.2),
+                    inset 0 0 30px rgba(239, 68, 68, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 60px rgba(239, 68, 68, 0.8),
+                    0 0 120px rgba(239, 68, 68, 0.4),
+                    inset 0 0 50px rgba(239, 68, 68, 0.2);
+            }
+        }
+        
+        /* Enhanced input fields with cosmic glow */
+        .cosmic-input {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+            color: white;
+        }
+        
+        .cosmic-input:focus {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.3),
+                0 0 80px rgba(255, 0, 255, 0.1),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+        
+        .cosmic-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Category buttons with cosmic effects */
+        .category-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .category-btn:hover::before {
+            left: 100%;
+        }
+        
+        .category-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            border: 2px solid rgba(0, 255, 255, 0.6);
+            box-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.4),
+                0 0 80px rgba(255, 0, 255, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Urgency slider with cosmic glow */
+        .urgency-slider {
+            appearance: none;
+            background: linear-gradient(90deg, #22c55e, #fbbf24, #ef4444);
+            height: 12px;
+            border-radius: 20px;
+            outline: none;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .urgency-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #fff, #00ffff, #ff00ff);
+            cursor: pointer;
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.8),
+                0 0 40px rgba(0, 255, 255, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .urgency-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 
+                0 0 30px rgba(255, 255, 255, 1),
+                0 0 60px rgba(0, 255, 255, 0.8);
+        }
+        
+        /* Action buttons with cosmic effects */
+        .action-btn {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+        }
+        
+        .action-btn:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+        
+        .action-btn.help {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .action-btn.help:hover {
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+        }
+        
+        .action-btn.comment {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .action-btn.comment:hover {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        
+        .action-btn.share {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+        
+        .action-btn.share:hover {
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+        }
+        
+        /* AI chatbot with cosmic glow */
+        .ai-cosmic {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: aiGradientShift 3s ease infinite, aiPulse 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 40px rgba(102, 126, 234, 0.4),
+                0 0 80px rgba(118, 75, 162, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes aiGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes aiPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 40px rgba(102, 126, 234, 0.4),
+                    0 0 80px rgba(118, 75, 162, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 60px rgba(102, 126, 234, 0.8),
+                    0 0 120px rgba(118, 75, 162, 0.4);
+            }
+        }
+        
+        .ai-cosmic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: aiShimmer 2s infinite;
+        }
+        
+        @keyframes aiShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Badge animations */
+        .helper-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            animation: badgeGlow 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 0 40px rgba(255, 215, 0, 0.3);
+        }
+        
+        @keyframes badgeGlow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                box-shadow: 
+                    0 0 20px rgba(255, 215, 0, 0.5),
+                    0 0 40px rgba(255, 215, 0, 0.3);
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: 
+                    0 0 30px rgba(255, 215, 0, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.5);
+            }
+        }
+        
+        /* Bottom navigation with cosmic glow */
+        .nav-item {
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+            background: rgba(0, 255, 255, 0.1);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(255, 0, 128, 0.3), rgba(0, 255, 255, 0.3));
+            border: 2px solid rgba(255, 0, 128, 0.6);
+            box-shadow: 
+                0 0 40px rgba(255, 0, 128, 0.5),
+                0 0 80px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Sparkle effects everywhere */
+        .sparkle-container {
+            position: relative;
+        }
+        
+        .sparkle-container::before,
+        .sparkle-container::after {
+            content: '✨';
+            position: absolute;
+            font-size: 12px;
+            animation: sparkleRotate 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        .sparkle-container::before {
+            top: -8px;
+            right: -8px;
+            animation-delay: 0s;
+        }
+        
+        .sparkle-container::after {
+            bottom: -8px;
+            left: -8px;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            25% { transform: rotate(90deg) scale(1.2); opacity: 0.8; }
+            50% { transform: rotate(180deg) scale(1.5); opacity: 0.6; }
+            75% { transform: rotate(270deg) scale(1.2); opacity: 0.8; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        
+        /* Emoji animations */
+        .emoji-float {
+            animation: emojiFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(5deg) scale(1.1); }
+            50% { transform: translateY(-5px) rotate(-5deg) scale(1.2); }
+            75% { transform: translateY(-15px) rotate(3deg) scale(1.1); }
+        }
+        
+        /* Custom scrollbar with cosmic theme */
+        .cosmic-scroll::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        .cosmic-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cosmic-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .cosmic-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ff00ff, #ffff00);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+        
+        /* Toast notifications with cosmic glow */
+        .cosmic-toast {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.3),
+                0 0 60px rgba(255, 0, 255, 0.1);
+            animation: toastSlide 0.5s ease-out, toastGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes toastGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.3),
+                    0 0 60px rgba(255, 0, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 40px rgba(0, 255, 255, 0.5),
+                    0 0 80px rgba(255, 0, 255, 0.2);
+            }
+        }
+        
+        @keyframes toastSlide {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Enhanced confetti with cosmic colors */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            animation: confettiFall 4s linear infinite;
+            pointer-events: none;
+        }
+        
+        .confetti.star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        
+        .confetti.circle {
+            border-radius: 50%;
+        }
+        
+        .confetti.square {
+            border-radius: 2px;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Toggle switch with cosmic glow */
+        .cosmic-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cosmic-toggle::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(45deg, #fff, #00ffff);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .cosmic-toggle.active {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            border-color: rgba(0, 255, 255, 0.6);
+        }
+        
+        .cosmic-toggle.active::before {
+            transform: translateX(30px);
+            background: linear-gradient(45deg, #ff00ff, #ffff00);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="text-white relative overflow-x-hidden pb-20">
+    <!-- Enhanced Starfield -->
+    <div class="stars" id="starfield"></div>
+    
+    <!-- Shooting Stars -->
+    <div id="shootingStars"></div>
+    
+    <!-- Enhanced Nebula Effects -->
+    <div class="nebula w-96 h-96 bg-purple-500 top-10 left-10 z-0"></div>
+    <div class="nebula w-80 h-80 bg-blue-500 top-1/2 right-20 z-0"></div>
+    <div class="nebula w-72 h-72 bg-pink-500 bottom-20 left-1/3 z-0"></div>
+    <div class="nebula w-64 h-64 bg-cyan-500 top-1/4 left-1/2 z-0"></div>
+    
+    <!-- Cosmic Orbs -->
+    <div class="cosmic-orb w-32 h-32 bg-gradient-to-r from-cyan-400 to-blue-500 top-20 right-1/4 z-0"></div>
+    <div class="cosmic-orb w-24 h-24 bg-gradient-to-r from-pink-400 to-purple-500 bottom-1/3 left-20 z-0" style="animation-delay: 2s;"></div>
+    <div class="cosmic-orb w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 top-1/3 right-10 z-0" style="animation-delay: 4s;"></div>
+    
+    <!-- Glitter Container -->
+    <div id="glitterContainer"></div>
+    
+    <!-- Cosmic Dust Container -->
+    <div id="cosmicDustContainer"></div>
+    
+    <!-- Cosmic Particles Container -->
+    <div id="cosmicParticlesContainer"></div>
+    
+    <!-- Main Container -->
+    <div class="relative z-10 min-h-screen p-4 max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8 pt-8">
+            <h1 class="cosmic-title text-4xl md:text-6xl font-black mb-4 sparkle-container">
+                Emergency Zone 🚨 – We've Got Your Back
+            </h1>
+            <p class="gen-z-subtitle text-xl md:text-2xl font-semibold mb-6">
+                Post help requests or assist others in need ✨
+            </p>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Emergency Post Form -->
+            <div class="lg:col-span-2">
+                <div class="galaxy-glass rounded-3xl p-8 mb-8 sparkle-container">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        🆘 Post Your Emergency
+                        <span class="ml-2 text-sm bg-gradient-to-r from-pink-500 to-purple-500 rounded-full px-3 py-1 emoji-float">Help!</span>
+                    </h3>
+                    
+                    <form onsubmit="postEmergency(event)" class="space-y-6">
+                        <!-- Emergency Description -->
+                        <div>
+                            <label class="block text-white font-semibold mb-2 flex items-center">
+                                📝 Describe your emergency...
+                                <span class="ml-2 text-xs text-cyan-300">*required</span>
+                            </label>
+                            <textarea id="emergencyDesc" placeholder="What's happening? We're here to help! 💫" 
+                                     class="cosmic-input w-full rounded-2xl px-6 py-4 text-lg placeholder-gray-400 focus:outline-none h-32 resize-none" required></textarea>
+                        </div>
+                        
+                        <!-- Category Tags -->
+                        <div>
+                            <label class="block text-white font-semibold mb-3">🏷️ Category</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <button type="button" onclick="selectCategory('lost-found')" id="cat-lost-found" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    🔑 Lost & Found
+                                </button>
+                                <button type="button" onclick="selectCategory('medical')" id="cat-medical" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    🚑 Medical
+                                </button>
+                                <button type="button" onclick="selectCategory('academic')" id="cat-academic" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    📚 Academic
+                                </button>
+                                <button type="button" onclick="selectCategory('travel')" id="cat-travel" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    🚌 Travel
+                                </button>
+                                <button type="button" onclick="selectCategory('tech')" id="cat-tech" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    💻 Tech Issues
+                                </button>
+                                <button type="button" onclick="selectCategory('other')" id="cat-other" 
+                                        class="category-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                                    🌟 Other
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Urgency Slider -->
+                        <div>
+                            <label class="block text-white font-semibold mb-3">⚡ Urgency Level</label>
+                            <div class="space-y-4">
+                                <input type="range" id="urgencySlider" min="1" max="3" value="2" 
+                                       class="urgency-slider w-full" onchange="updateUrgency(this.value)">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-green-300 font-semibold">🟢 Low - Can wait</span>
+                                    <span class="text-yellow-300 font-semibold">🟡 Medium - Soon please</span>
+                                    <span class="text-red-300 font-semibold">🔴 High - URGENT!</span>
+                                </div>
+                                <div class="text-center">
+                                    <span id="urgencyDisplay" class="text-xl font-bold text-yellow-300">🟡 Medium Priority</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Anonymous Toggle -->
+                        <div class="flex items-center justify-between">
+                            <label class="text-white font-semibold flex items-center">
+                                🥸 Post Anonymously
+                                <span class="ml-2 text-xs text-gray-400">Keep your identity private</span>
+                            </label>
+                            <div class="cosmic-toggle" id="anonymousToggle" onclick="toggleAnonymous()"></div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 rounded-2xl px-6 py-4 text-white font-bold text-xl hover:scale-105 transition-transform shadow-lg sparkle-container">
+                            🚀 Post My Emergency
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Emergency Feed -->
+                <div class="galaxy-glass rounded-3xl p-6 sparkle-container">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white flex items-center">
+                            📢 Campus Emergency Feed
+                            <span class="ml-2 emoji-float">🌌</span>
+                        </h3>
+                        <div class="flex gap-2">
+                            <button onclick="filterFeed('all')" id="filter-all" class="action-btn rounded-xl px-3 py-2 text-sm text-white active">
+                                All
+                            </button>
+                            <button onclick="filterFeed('high')" id="filter-high" class="action-btn rounded-xl px-3 py-2 text-sm text-white">
+                                🔴 Urgent
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="emergencyFeed" class="space-y-4 max-h-96 overflow-y-auto cosmic-scroll">
+                        <!-- Sample Emergency Posts -->
+                        <div class="emergency-card urgency-high rounded-2xl p-6 sparkle-container">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="bg-red-500 text-white rounded-full px-3 py-1 text-sm font-bold">🚑 Medical</span>
+                                    <span class="text-red-300 text-sm font-semibold">🔴 HIGH PRIORITY</span>
+                                </div>
+                                <span class="text-gray-400 text-sm">2 min ago</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">Need someone with a car to drive me to hospital. Twisted ankle badly during basketball. Can't walk properly! 😰</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex space-x-3">
+                                    <button onclick="helpUser(1)" class="action-btn help rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                        👍 Help (3)
+                                    </button>
+                                    <button onclick="commentPost(1)" class="action-btn comment rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                        💬 Comment (1)
+                                    </button>
+                                    <button onclick="sharePost(1)" class="action-btn share rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                        🔗 Share
+                                    </button>
+                                </div>
+                                <div class="helper-badge rounded-full px-3 py-1 text-black font-bold text-sm">
+                                    🦸 Helper of the Day
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="emergency-card urgency-medium rounded-2xl p-6 sparkle-container">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="bg-blue-500 text-white rounded-full px-3 py-1 text-sm font-bold">🔑 Lost & Found</span>
+                                    <span class="text-yellow-300 text-sm font-semibold">🟡 MEDIUM</span>
+                                </div>
+                                <span class="text-gray-400 text-sm">15 min ago</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">Lost my student ID card somewhere near the library. Has my photo and name "Sarah Chen". Please help! 🆔</p>
+                            <div class="flex space-x-3">
+                                <button onclick="helpUser(2)" class="action-btn help rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    👍 Help (7)
+                                </button>
+                                <button onclick="commentPost(2)" class="action-btn comment rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    💬 Comment (3)
+                                </button>
+                                <button onclick="sharePost(2)" class="action-btn share rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    🔗 Share
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="emergency-card urgency-low rounded-2xl p-6 sparkle-container">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="bg-green-500 text-white rounded-full px-3 py-1 text-sm font-bold">📚 Academic</span>
+                                    <span class="text-green-300 text-sm font-semibold">🟢 LOW</span>
+                                </div>
+                                <span class="text-gray-400 text-sm">1 hour ago</span>
+                            </div>
+                            <p class="text-white text-lg mb-4">Anyone have notes from Prof. Johnson's Chemistry lecture today? I missed it due to a doctor's appointment 📝</p>
+                            <div class="flex space-x-3">
+                                <button onclick="helpUser(3)" class="action-btn help rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    👍 Help (12)
+                                </button>
+                                <button onclick="commentPost(3)" class="action-btn comment rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    💬 Comment (5)
+                                </button>
+                                <button onclick="sharePost(3)" class="action-btn share rounded-xl px-4 py-2 text-white font-semibold sparkle-container">
+                                    🔗 Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Assistant Sidebar -->
+            <div class="space-y-6">
+                <!-- AI Smart Suggestions -->
+                <div class="ai-cosmic rounded-3xl p-6 sparkle-container">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        🤖 AI Smart Helper
+                        <span class="ml-2 emoji-float">✨</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-black/20 rounded-2xl p-4 border border-white/10">
+                            <p class="text-white text-sm mb-2">💡 <strong>Lost ID Card?</strong></p>
+                            <p class="text-gray-300 text-sm">Try Student Office near Admin Block. They have a lost & found box!</p>
+                        </div>
+                        <div class="bg-black/20 rounded-2xl p-4 border border-white/10">
+                            <p class="text-white text-sm mb-2">📚 <strong>Need Notes?</strong></p>
+                            <p class="text-gray-300 text-sm">Check Lecture Notes section in the app or ask your study group!</p>
+                        </div>
+                        <div class="bg-black/20 rounded-2xl p-4 border border-white/10">
+                            <p class="text-white text-sm mb-2">🚑 <strong>Medical Emergency?</strong></p>
+                            <p class="text-gray-300 text-sm">Campus Health Center: Building C, Room 101. Emergency: Call 911!</p>
+                        </div>
+                    </div>
+                    <button onclick="askAI()" class="w-full mt-4 bg-white/10 rounded-2xl px-4 py-3 text-white font-semibold hover:bg-white/20 transition-colors sparkle-container">
+                        💬 Ask AI Assistant
+                    </button>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="galaxy-glass rounded-3xl p-6 sparkle-container">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        ⚡ Quick Actions
+                        <span class="ml-2 emoji-float">🎯</span>
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="showMap()" class="w-full action-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                            🗺️ Campus Map View
+                        </button>
+                        <button onclick="toggleNotifications()" class="w-full action-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                            🔔 Emergency Alerts
+                        </button>
+                        <button onclick="viewLeaderboard()" class="w-full action-btn rounded-2xl px-4 py-3 text-white font-semibold sparkle-container">
+                            🏆 Helper Leaderboard
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Campus Stats -->
+                <div class="galaxy-glass rounded-3xl p-6 sparkle-container">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                        📊 Campus Stats
+                        <span class="ml-2 emoji-float">📈</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">Active Helpers</span>
+                            <span class="text-green-300 font-bold text-xl">247 🦸</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">Resolved Today</span>
+                            <span class="text-blue-300 font-bold text-xl">89 ✅</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-300">Response Time</span>
+                            <span class="text-purple-300 font-bold text-xl">3.2 min ⚡</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 z-50">
+        <div class="galaxy-glass border-t border-white/10 px-4 py-3">
+            <div class="flex justify-around items-center max-w-md mx-auto">
+                <button onclick="navigate('notes')" class="nav-item rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">📚</div>
+                    <div class="text-xs text-white">Notes</div>
+                </button>
+                <button onclick="navigate('tasks')" class="nav-item rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">✅</div>
+                    <div class="text-xs text-white">Tasks</div>
+                </button>
+                <button onclick="navigate('quiz')" class="nav-item rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">📝</div>
+                    <div class="text-xs text-white">Quiz</div>
+                </button>
+                <button onclick="navigate('emergency')" class="nav-item active rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">🚨</div>
+                    <div class="text-xs text-white">Emergency</div>
+                </button>
+                <button onclick="navigate('leaderboard')" class="nav-item rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">🏆</div>
+                    <div class="text-xs text-white">Leaderboard</div>
+                </button>
+                <button onclick="navigate('ai')" class="nav-item rounded-2xl p-3 text-center">
+                    <div class="text-2xl mb-1">🤖</div>
+                    <div class="text-xs text-white">AI Assistant</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2"></div>
+    
+    <!-- Confetti Container -->
+    <div id="confettiContainer" class="fixed inset-0 pointer-events-none z-40"></div>
+    
+    <script>
+        // Global variables
+        let selectedCategory = '';
+        let urgencyLevel = 2;
+        let isAnonymous = false;
+        let emergencies = [];
+        let emergencyIdCounter = 4;
+        
+        // Enhanced starfield creation
+        function createEnhancedStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 300;
+            const starTypes = ['tiny', 'small', 'medium', 'large'];
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                const type = starTypes[Math.floor(Math.random() * starTypes.length)];
+                star.className = `star ${type}`;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        
+        // Create shooting stars
+        function createShootingStars() {
+            const container = document.getElementById('shootingStars');
+            
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const shootingStar = document.createElement('div');
+                    shootingStar.className = 'shooting-star';
+                    shootingStar.style.top = Math.random() * 50 + '%';
+                    shootingStar.style.left = '-100px';
+                    container.appendChild(shootingStar);
+                    
+                    setTimeout(() => {
+                        if (container.contains(shootingStar)) {
+                            container.removeChild(shootingStar);
+                        }
+                    }, 3000);
+                }
+            }, 2000);
+        }
+        
+        // Enhanced glitter creation
+        function createEnhancedGlitter() {
+            const container = document.getElementById('glitterContainer');
+            
+            setInterval(() => {
+                for (let i = 0; i < 5; i++) {
+                    const glitter = document.createElement('div');
+                    const sizes = ['small', 'medium', 'large'];
+                    const size = sizes[Math.floor(Math.random() * sizes.length)];
+                    glitter.className = `glitter ${size}`;
+                    glitter.style.left = Math.random() * 100 + '%';
+                    glitter.style.animationDelay = Math.random() * 6 + 's';
+                    glitter.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                    container.appendChild(glitter);
+                    
+                    setTimeout(() => {
+                        if (container.contains(glitter)) {
+                            container.removeChild(glitter);
+                        }
+                    }, 8000);
+                }
+            }, 1000);
+        }
+        
+        // Create cosmic dust
+        function createCosmicDust() {
+            const container = document.getElementById('cosmicDustContainer');
+            
+            setInterval(() => {
+                for (let i = 0; i < 10; i++) {
+                    const dust = document.createElement('div');
+                    dust.className = 'cosmic-dust';
+                    dust.style.left = Math.random() * 100 + '%';
+                    dust.style.animationDelay = Math.random() * 15 + 's';
+                    container.appendChild(dust);
+                    
+                    setTimeout(() => {
+                        if (container.contains(dust)) {
+                            container.removeChild(dust);
+                        }
+                    }, 15000);
+                }
+            }, 3000);
+        }
+        
+        // Create cosmic particles
+        function createCosmicParticles() {
+            const container = document.getElementById('cosmicParticlesContainer');
+            const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff6b6b', '#4ecdc4'];
+            
+            setInterval(() => {
+                for (let i = 0; i < 3; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'cosmic-particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.width = (Math.random() * 4 + 2) + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.boxShadow = `0 0 ${Math.random() * 20 + 10}px currentColor`;
+                    particle.style.animationDelay = Math.random() * 10 + 's';
+                    container.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (container.contains(particle)) {
+                            container.removeChild(particle);
+                        }
+                    }, 10000);
+                }
+            }, 2000);
+        }
+        
+        // Select category function
+        function selectCategory(category) {
+            selectedCategory = category;
+            
+            // Remove active class from all category buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected category
+            document.getElementById(`cat-${category}`).classList.add('active');
+            
+            showCosmicToast(`Category selected: ${category.replace('-', ' & ')} 🏷️✨`);
+            createMiniCosmicEffect();
+        }
+        
+        // Update urgency function
+        function updateUrgency(value) {
+            urgencyLevel = parseInt(value);
+            const urgencyDisplay = document.getElementById('urgencyDisplay');
+            
+            switch(urgencyLevel) {
+                case 1:
+                    urgencyDisplay.textContent = '🟢 Low Priority';
+                    urgencyDisplay.className = 'text-xl font-bold text-green-300';
+                    break;
+                case 2:
+                    urgencyDisplay.textContent = '🟡 Medium Priority';
+                    urgencyDisplay.className = 'text-xl font-bold text-yellow-300';
+                    break;
+                case 3:
+                    urgencyDisplay.textContent = '🔴 HIGH PRIORITY';
+                    urgencyDisplay.className = 'text-xl font-bold text-red-300';
+                    break;
+            }
+            
+            createMiniCosmicEffect();
+        }
+        
+        // Toggle anonymous function
+        function toggleAnonymous() {
+            isAnonymous = !isAnonymous;
+            const toggle = document.getElementById('anonymousToggle');
+            
+            if (isAnonymous) {
+                toggle.classList.add('active');
+                showCosmicToast('Anonymous mode enabled! 🥸✨');
+            } else {
+                toggle.classList.remove('active');
+                showCosmicToast('Anonymous mode disabled! 👤✨');
+            }
+            
+            createMiniCosmicEffect();
+        }
+        
+        // Post emergency function
+        function postEmergency(event) {
+            event.preventDefault();
+            
+            const description = document.getElementById('emergencyDesc').value;
+            
+            if (!description || !selectedCategory) {
+                showCosmicToast('Please fill in all fields and select a category! 📝🌟', 'error');
+                return;
+            }
+            
+            const emergency = {
+                id: emergencyIdCounter++,
+                description: description,
+                category: selectedCategory,
+                urgency: urgencyLevel,
+                anonymous: isAnonymous,
+                timestamp: new Date(),
+                helps: 0,
+                comments: 0
+            };
+            
+            emergencies.unshift(emergency);
+            renderEmergencyFeed();
+            
+            // Clear form
+            document.getElementById('emergencyDesc').value = '';
+            selectedCategory = '';
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            showCosmicToast('Emergency posted successfully! Help is on the way! 🚀✨');
+            createCosmicExplosion();
+            createEnhancedConfetti();
+        }
+        
+        // Render emergency feed
+        function renderEmergencyFeed() {
+            // This would update the feed with new posts
+            // For demo purposes, we'll just show the toast
+        }
+        
+        // Help user function
+        function helpUser(emergencyId) {
+            showCosmicToast('You offered to help! You\'re a campus hero! 🦸‍♀️✨');
+            createCosmicExplosion();
+            createEnhancedConfetti();
+        }
+        
+        // Comment on post function
+        function commentPost(emergencyId) {
+            showCosmicToast('Comment feature opened! Share your thoughts! 💬✨');
+            createMiniCosmicEffect();
+        }
+        
+        // Share post function
+        function sharePost(emergencyId) {
+            showCosmicToast('Post shared! Spreading the word! 🔗✨');
+            createMiniCosmicEffect();
+        }
+        
+        // Filter feed function
+        function filterFeed(filter) {
+            // Remove active class from all filter buttons
+            document.querySelectorAll('#filter-all, #filter-high').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected filter
+            document.getElementById(`filter-${filter}`).classList.add('active');
+            
+            showCosmicToast(`Filtering by: ${filter === 'all' ? 'All Posts' : 'High Priority'} 🔍✨`);
+            createMiniCosmicEffect();
+        }
+        
+        // AI functions
+        function askAI() {
+            showCosmicToast('AI Assistant activated! Ask me anything! 🤖✨');
+            createCosmicExplosion();
+        }
+        
+        // Quick action functions
+        function showMap() {
+            showCosmicToast('Campus map loading! Find your way around! 🗺️✨');
+            createMiniCosmicEffect();
+        }
+        
+        function toggleNotifications() {
+            showCosmicToast('Emergency alerts toggled! Stay informed! 🔔✨');
+            createMiniCosmicEffect();
+        }
+        
+        function viewLeaderboard() {
+            showCosmicToast('Helper leaderboard opened! See the heroes! 🏆✨');
+            createMiniCosmicEffect();
+        }
+        
+        // Navigation function
+        function navigate(section) {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            event.currentTarget.classList.add('active');
+            
+            showCosmicToast(`Navigating to ${section}! 🚀✨`);
+            createMiniCosmicEffect();
+        }
+        
+        // Enhanced cosmic toast notification
+        function showCosmicToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `cosmic-toast rounded-2xl p-4 text-white font-semibold max-w-sm ${type === 'error' ? 'border-2 border-red-400' : ''} sparkle-container`;
+            toast.textContent = message;
+            
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+        
+        // Enhanced confetti effect
+        function createEnhancedConfetti() {
+            const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff6b6b', '#4ecdc4', '#ffd93d', '#ff9ff3'];
+            const shapes = ['star', 'circle', 'square'];
+            const confettiContainer = document.getElementById('confettiContainer');
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                confetti.className = `confetti ${shape}`;
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 4 + 's';
+                confetti.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => {
+                    if (confettiContainer.contains(confetti)) {
+                        confetti.remove();
+                    }
+                }, 7000);
+            }
+        }
+        
+        // Create cosmic explosion effect
+        function createCosmicExplosion() {
+            const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff6b6b', '#4ecdc4'];
+            
+            for (let i = 0; i < 30; i++) {
+                const explosion = document.createElement('div');
+                explosion.className = 'absolute w-3 h-3 rounded-full pointer-events-none';
+                explosion.style.left = Math.random() * 100 + '%';
+                explosion.style.top = Math.random() * 100 + '%';
+                explosion.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, transparent)`;
+                explosion.style.boxShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                explosion.style.animation = `cosmicExplosion ${Math.random() * 3 + 2}s ease-out`;
+                explosion.style.animationDelay = Math.random() * 1 + 's';
+                document.body.appendChild(explosion);
+                
+                setTimeout(() => {
+                    if (document.body.contains(explosion)) {
+                        document.body.removeChild(explosion);
+                    }
+                }, 5000);
+            }
+        }
+        
+        // Create mini cosmic effect
+        function createMiniCosmicEffect() {
+            const colors = ['#00ffff', '#ff00ff', '#ffff00'];
+            
+            for (let i = 0; i < 10; i++) {
+                const effect = document.createElement('div');
+                effect.className = 'absolute w-2 h-2 rounded-full pointer-events-none';
+                effect.style.left = Math.random() * 100 + '%';
+                effect.style.top = Math.random() * 100 + '%';
+                effect.style.background = colors[Math.floor(Math.random() * colors.length)];
+                effect.style.boxShadow = `0 0 10px currentColor`;
+                effect.style.animation = `miniCosmicEffect ${Math.random() * 2 + 1}s ease-out`;
+                document.body.appendChild(effect);
+                
+                setTimeout(() => {
+                    if (document.body.contains(effect)) {
+                        document.body.removeChild(effect);
+                    }
+                }, 3000);
+            }
+        }
+        
+        // Add cosmic explosion and mini effect keyframes
+        const cosmicStyle = document.createElement('style');
+        cosmicStyle.textContent = `
+            @keyframes cosmicExplosion {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(4) rotate(180deg); opacity: 0.8; }
+                100% { transform: scale(8) rotate(360deg); opacity: 0; }
+            }
+            
+            @keyframes miniCosmicEffect {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                50% { transform: scale(2) rotate(180deg); opacity: 0.6; }
+                100% { transform: scale(4) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(cosmicStyle);
+        
+        // Initialize cosmic app
+        function initCosmicApp() {
+            // Create all cosmic effects
+            createEnhancedStarfield();
+            createShootingStars();
+            createEnhancedGlitter();
+            createCosmicDust();
+            createCosmicParticles();
+            
+            // Welcome to the cosmos
+            setTimeout(() => {
+                showCosmicToast('Welcome to Emergency Zone! Ready to help your campus community? 🚨🌌✨');
+                createCosmicExplosion();
+            }, 1500);
+            
+            // Random cosmic explosions
+            setInterval(() => {
+                if (Math.random() < 0.1) {
+                    createCosmicExplosion();
+                }
+            }, 15000);
+        }
+        
+        // Initialize the cosmic app when page loads
+        document.addEventListener('DOMContentLoaded', initCosmicApp);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e68cceb7b96ebf',t:'MTc1Nzc1NTAzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

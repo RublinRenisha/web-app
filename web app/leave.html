@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)file:///C:/Users/ADMIN/AppData/Local/Microsoft/Windows/INetCache/IE/VOR7E9ZA/demo[1].html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply for Leave 📝</title><link rel="icon" href="logo.png">
+  <script src="./Apply for Leave 📝_files/saved_resource"></script>
+  <style>
+    /* Accent glow + subtle animations */
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .stamp {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      transform: rotate(-8deg) scale(0.7);
+      opacity: 0;
+      animation: popStamp 0.6s ease forwards;
+      transform-origin: center;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+    }
+    @keyframes popStamp {
+      0% { opacity: 0; transform: rotate(-8deg) scale(0.4); }
+      60% { opacity: 1; transform: rotate(-8deg) scale(1.05); }
+      100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+    }
+    .pulse {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(99,102,241,0); }
+    }
+    .toast-enter {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    .toast-enter-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: all 300ms ease;
+    }
+    .toast-exit {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast-exit-active {
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 300ms ease;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+    /* Calendar grid */
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .cell {
+      min-height: 72px;
+    }
+      /* Galaxy extras */
+    .twinkle{position:absolute;border-radius:9999px;background: radial-gradient(circle, rgba(255,255,255,0.95) 0 45%, rgba(255,255,255,0.2) 60%, transparent 70%);opacity:.8;filter: drop-shadow(0 0 8px rgba(255,255,255,.35));}
+    @keyframes twinkleAnim{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
+
+    .shooting-star{position:fixed;top:-10vh;left:-10vw;width:2px;height:2px;background:transparent;box-shadow:0 0 12px 6px rgba(255,255,255,.85);border-radius:9999px;opacity:.9;z-index:10;}
+    .shooting-star:after{content:'';position:absolute;top:-1px;left:-120px;width:120px;height:3px;background:linear-gradient(90deg, rgba(255,255,255,.0) 0%, rgba(255,255,255,.8) 60%, rgba(255,255,255,0) 100%);filter:blur(1px)}
+    @keyframes shoot{0%{transform:translate(-10vw,-10vh) rotate(25deg)}100%{transform:translate(120vw,120vh) rotate(25deg);opacity:0}}
+
+    .nebula { position:absolute; border-radius:9999px; filter: blur(60px); opacity:.25; pointer-events:none; }
+    .nebula.n1{ width:48rem; height:48rem; left:-10%; top:-10%; background: radial-gradient(circle at 30% 30%, rgba(99,102,241,.55), rgba(168,85,247,.35), rgba(236,72,153,.0)); }
+    .nebula.n2{ width:36rem; height:36rem; right:-8%; top:10%; background: radial-gradient(circle at 70% 30%, rgba(56,189,248,.45), rgba(147,51,234,.25), rgba(244,63,94,0)); }
+    .nebula.n3{ width:44rem; height:44rem; left:10%; bottom:-12%; background: radial-gradient(circle at 40% 60%, rgba(34,197,94,.35), rgba(59,130,246,.25), rgba(255,255,255,0)); }
+
+    /* Button shimmer */
+    .shimmer-btn { position:relative; overflow:hidden; }
+    .shimmer-btn:before{content:''; position:absolute; inset:-40%; background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.15), rgba(255,255,255,0) 30%, rgba(255,255,255,.15) 60%, rgba(255,255,255,0) 85%, rgba(255,255,255,.15)); animation: rotateShimmer 6s linear infinite;}
+    .shimmer-btn span.label { position: relative; }
+    @keyframes rotateShimmer{to{transform:rotate(360deg)}}
+
+    /* Header glow */
+    .cosmic-text { background: linear-gradient(90deg, #c7d2fe, #f5c2ff, #a5f3fc); -webkit-background-clip:text; background-clip:text; color: transparent; text-shadow: 0 0 24px rgba(165,180,252,.25); }
+</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.-inset-0\.5{inset:-0.125rem}.inset-0{inset:0px}.inset-x-0{left:0px;right:0px}.-top-24{top:-6rem}.bottom-0{bottom:0px}.right-4{right:1rem}.top-4{top:1rem}.right-2{right:0.5rem}.top-2{top:0.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}.ml-auto{margin-left:auto}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-1{margin-top:0.25rem}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-4{height:1rem}.h-48{height:12rem}.h-7{height:1.75rem}.h-9{height:2.25rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-16{width:4rem}.w-7{width:1.75rem}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.flex-1{flex:1 1 0%}.translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.whitespace-pre-wrap{white-space:pre-wrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-indigo-400\/40{border-color:rgb(129 140 248 / 0.4)}.border-red-400\/40{border-color:rgb(248 113 113 / 0.4)}.border-amber-300\/50{border-color:rgb(252 211 77 / 0.5)}.border-emerald-300\/50{border-color:rgb(110 231 183 / 0.5)}.border-emerald-400\/40{border-color:rgb(52 211 153 / 0.4)}.border-indigo-300\/50{border-color:rgb(165 180 252 / 0.5)}.border-rose-300\/50{border-color:rgb(253 164 175 / 0.5)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-yellow-400\/40{border-color:rgb(250 204 21 / 0.4)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-fuchsia-500{--tw-bg-opacity:1;background-color:rgb(217 70 239 / var(--tw-bg-opacity, 1))}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.bg-indigo-500\/20{background-color:rgb(99 102 241 / 0.2)}.bg-indigo-500\/30{background-color:rgb(99 102 241 / 0.3)}.bg-red-400{--tw-bg-opacity:1;background-color:rgb(248 113 113 / var(--tw-bg-opacity, 1))}.bg-red-500\/20{background-color:rgb(239 68 68 / 0.2)}.bg-red-500\/30{background-color:rgb(239 68 68 / 0.3)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}.bg-rose-400{--tw-bg-opacity:1;background-color:rgb(251 113 133 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-red-300{--tw-bg-opacity:1;background-color:rgb(252 165 165 / var(--tw-bg-opacity, 1))}.bg-red-500\/50{background-color:rgb(239 68 68 / 0.5)}.bg-yellow-500\/20{background-color:rgb(234 179 8 / 0.2)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#0a0722\]{--tw-gradient-from:#0a0722 var(--tw-gradient-from-position);--tw-gradient-to:rgb(10 7 34 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-400{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-400\/20{--tw-gradient-from:rgb(251 191 36 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-400\/20{--tw-gradient-from:rgb(52 211 153 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-500\/10{--tw-gradient-from:rgb(16 185 129 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-indigo-400\/20{--tw-gradient-from:rgb(129 140 248 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(129 140 248 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-rose-400\/20{--tw-gradient-from:rgb(251 113 133 / 0.2) var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 113 133 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-yellow-500\/10{--tw-gradient-from:rgb(234 179 8 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(234 179 8 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-\[\#140a3a\]{--tw-gradient-to:rgb(20 10 58 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #140a3a var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#2a0a4a\]{--tw-gradient-to:#2a0a4a var(--tw-gradient-to-position)}.to-emerald-600{--tw-gradient-to:#059669 var(--tw-gradient-to-position)}.to-amber-400\/0{--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position)}.to-emerald-400\/0{--tw-gradient-to:rgb(52 211 153 / 0) var(--tw-gradient-to-position)}.to-emerald-500\/0{--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position)}.to-indigo-400\/0{--tw-gradient-to:rgb(129 140 248 / 0) var(--tw-gradient-to-position)}.to-rose-400\/0{--tw-gradient-to:rgb(251 113 133 / 0) var(--tw-gradient-to-position)}.to-yellow-500\/0{--tw-gradient-to:rgb(234 179 8 / 0) var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-5{padding:1.25rem}.p-4{padding:1rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.text-left{text-align:left}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.text-indigo-100{--tw-text-opacity:1;color:rgb(224 231 255 / var(--tw-text-opacity, 1))}.text-indigo-100\/95{color:rgb(224 231 255 / 0.95)}.text-indigo-200{--tw-text-opacity:1;color:rgb(199 210 254 / var(--tw-text-opacity, 1))}.text-indigo-200\/70{color:rgb(199 210 254 / 0.7)}.text-indigo-200\/80{color:rgb(199 210 254 / 0.8)}.text-indigo-200\/90{color:rgb(199 210 254 / 0.9)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.opacity-20{opacity:0.2}.opacity-40{opacity:0.4}.opacity-30{opacity:0.3}.opacity-60{opacity:0.6}.shadow-\[0_0_40px_rgba\(16\2c 185\2c 129\2c 0\.12\)\]{--tw-shadow:0 0 40px rgba(16,185,129,0.12);--tw-shadow-colored:0 0 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_40px_rgba\(168\2c 85\2c 247\2c 0\.12\)\]{--tw-shadow:0 0 40px rgba(168,85,247,0.12);--tw-shadow-colored:0 0 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_40px_rgba\(236\2c 72\2c 153\2c 0\.12\)\]{--tw-shadow:0 0 40px rgba(236,72,153,0.12);--tw-shadow-colored:0 0 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_40px_rgba\(59\2c 130\2c 246\2c 0\.12\)\]{--tw-shadow:0 0 40px rgba(59,130,246,0.12);--tw-shadow-colored:0 0 40px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_60px_rgba\(99\2c 102\2c 241\2c 0\.12\)\]{--tw-shadow:0 0 60px rgba(99,102,241,0.12);--tw-shadow-colored:0 0 60px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_0_rgba\(255\2c 255\2c 255\2c 0\)\]{--tw-shadow:0 0 0 rgba(255,255,255,0);--tw-shadow-colored:0 0 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-emerald-900\/40{--tw-shadow-color:rgb(6 78 59 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.shadow-fuchsia-900\/40{--tw-shadow-color:rgb(112 26 117 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.shadow-indigo-900\/40{--tw-shadow-color:rgb(49 46 129 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-emerald-300\/30{--tw-ring-color:rgb(110 231 183 / 0.3)}.ring-fuchsia-300\/30{--tw-ring-color:rgb(240 171 252 / 0.3)}.ring-indigo-300\/30{--tw-ring-color:rgb(165 180 252 / 0.3)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-\[0_0_30px_rgba\(255\2c 255\2c 255\2c \.05\)\]{--tw-drop-shadow:drop-shadow(0 0 30px rgba(255,255,255,.05));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-emerald-600:hover{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.hover\:bg-fuchsia-600:hover{--tw-bg-opacity:1;background-color:rgb(192 38 211 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-500\/50:hover{background-color:rgb(99 102 241 / 0.5)}.hover\:bg-indigo-600:hover{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:bg-white\/20:hover{background-color:rgb(255 255 255 / 0.2)}.hover\:shadow-\[0_0_20px_rgba\(255\2c 255\2c 255\2c 0\.08\)\]:hover{--tw-shadow:0 0 20px rgba(255,255,255,0.08);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:ring-emerald-300\/50:hover{--tw-ring-color:rgb(110 231 183 / 0.5)}.hover\:ring-fuchsia-300\/50:hover{--tw-ring-color:rgb(240 171 252 / 0.5)}.hover\:ring-indigo-300\/50:hover{--tw-ring-color:rgb(165 180 252 / 0.5)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-\[0\.99\]:active{--tw-scale-x:0.99;--tw-scale-y:0.99;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:w-auto{width:auto}.sm\:flex-none{flex:none}.sm\:flex-row{flex-direction:row}.sm\:p-6{padding:1.5rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:ml-0{margin-left:0px}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:justify-start{justify-content:flex-start}.md\:gap-4{gap:1rem}}@media (min-width: 1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1280px){.xl\:col-span-2{grid-column:span 2 / span 2}.xl\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="min-h-screen relative overflow-x-hidden bg-gradient-to-br from-[#0a0722] via-[#140a3a] to-[#2a0a4a] text-white">
+  <!-- Top gradient aura -->
+  <div class="absolute inset-x-0 -top-24 mx-auto h-48 max-w-5xl blur-3xl opacity-40 pointer-events-none" style="background: radial-gradient(60% 60% at 50% 50%, rgba(244,63,94,0.25), rgba(99,102,241,0.25), rgba(168,85,247,0.2));"></div>
+  <div class="nebula n1"></div>
+  <div class="nebula n2"></div>
+  <div class="nebula n3"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <header class="mb-8">
+      <h1 class="cosmic-text text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight flex items-center gap-3">
+        Apply for Leave 📝
+        <span class="inline-flex items-center text-xs sm:text-sm font-semibold px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/40 text-indigo-200">
+          AI-Powered
+        </span>
+      </h1>
+      <p class="text-indigo-200/90 mt-2 text-base sm:text-lg">Quick, smart &amp; hassle-free</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+
+      <!-- Left: Form + AI -->
+      <section class="xl:col-span-2 space-y-6">
+        <div class="glass rounded-2xl p-5 sm:p-6 shadow-[0_0_60px_rgba(99,102,241,0.12)]">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold">Leave Form</h2>
+            <span class="text-sm text-indigo-200/70">Fill the details below</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Department -->
+            <div>
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">🎓</span> Department
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <select id="department" class="w-full bg-transparent focus:outline-none">
+                  <option class="bg-slate-900" value="" disabled="" selected="">Select your department</option>
+                  <option class="bg-slate-900" value="Computer Science">CSE</option>
+                  <option class="bg-slate-900" value="Civil">AI&DS</option>
+                  <option class="bg-slate-900" value="Electronics">ECE</option>
+                  <option class="bg-slate-900" value="Mechanical">EEE</option>
+                  <option class="bg-slate-900" value="Civil">Civil</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Year -->
+            <div>
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">📅</span> Year
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <select id="year" class="w-full bg-transparent focus:outline-none">
+                  <option class="bg-slate-900" value="" disabled="" selected="">Select your year</option>
+                  <option class="bg-slate-900" value="1st Year">I</option>
+                  <option class="bg-slate-900" value="2nd Year">II</option>
+                  <option class="bg-slate-900" value="3rd Year">III</option>
+                  <option class="bg-slate-900" value="4th Year">IV</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Date From -->
+            <div>
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">📆</span> From
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <input id="dateFrom" type="date" class="w-full bg-transparent focus:outline-none">
+              </div>
+            </div>
+
+            <!-- Date To -->
+            <div>
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">📆</span> To
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <input id="dateTo" type="date" class="w-full bg-transparent focus:outline-none">
+              </div>
+            </div>
+
+            <!-- Reason -->
+            <div class="md:col-span-2">
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">📝</span> Reason
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <input id="reason" type="text" placeholder="Tell us why..." class="w-full bg-transparent focus:outline-none">
+              </div>
+              <p class="text-xs text-indigo-200/70 mt-2">
+                Try emojis: 😷 Sick | 🏠 Family | 📚 Exam Prep | 🎉 Event
+              </p>
+            </div>
+
+            <!-- Send To -->
+            <div>
+              <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                <span class="text-lg">📨</span> Send To
+              </label>
+              <div class="glass rounded-xl px-4 py-2.5">
+                <select id="sendTo" class="w-full bg-transparent focus:outline-none">
+                  <option class="bg-slate-900" value="" disabled="" selected="">Select recipient</option>
+                  <option class="bg-slate-900" value="HOD">HOD</option>
+                  <option class="bg-slate-900" value="Class Advisor">Class Advisor</option>
+                  <option class="bg-slate-900" value="Faculty">Faculty</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Emergency Toggle -->
+            <div class="flex items-center justify-between md:justify-start md:gap-4">
+              <div>
+                <label class="flex items-center gap-2 text-sm font-medium text-indigo-100 mb-2">
+                  <span class="text-lg">🚨</span> Emergency Leave
+                </label>
+                <p class="text-xs text-indigo-200/70">Instantly alerts recipient</p>
+              </div>
+              <button id="emergencyToggle" class="ml-auto md:ml-0 relative inline-flex h-9 w-16 items-center rounded-full transition border border-red-400/40 bg-red-500/30">
+                <span id="toggleKnob" class="inline-block h-7 w-7 transform rounded-full translate-x-1 transition bg-red-400" style="transform: translateX(0.25rem);"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button id="aiBtn" class="shimmer-btn flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl
+                           bg-indigo-500 hover:bg-indigo-600 active:scale-[0.99] transition font-semibold shadow-lg shadow-indigo-900/40 ring-2 ring-indigo-300/30 hover:ring-indigo-300/50">
+              <span class="label">Generate My Leave Letter with AI 🤖</span>
+            </button>
+            <button id="submitBtn" class="shimmer-btn flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl
+                           bg-emerald-500 hover:bg-emerald-600 active:scale-[0.99] transition font-semibold shadow-lg shadow-emerald-900/40 ring-2 ring-emerald-300/30 hover:ring-emerald-300/50">
+              <span class="label">Submit Request ✅</span>
+            </button>
+            <button id="resetBtn" class="shimmer-btn flex-1 sm:flex-none sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl
+                           bg-fuchsia-500 hover:bg-fuchsia-600 active:scale-[0.99] transition font-semibold shadow-lg shadow-fuchsia-900/40 ring-2 ring-fuchsia-300/30 hover:ring-fuchsia-300/50">
+              <span class="label">Reset ↩️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- AI Letter Output -->
+        <div id="letterCard" class="hidden glass rounded-2xl p-5 sm:p-6 relative">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-bold">Your Leave Letter</h3>
+            <button id="copyLetter" class="text-sm px-3 py-1.5 rounded-lg bg-indigo-500/30 hover:bg-indigo-500/50 border border-indigo-400/40">
+              Copy 📋
+            </button>
+          </div>
+          <pre id="letterText" class="whitespace-pre-wrap text-indigo-100/95 leading-relaxed text-sm sm:text-base"></pre>
+          <div class="absolute -inset-0.5 rounded-2xl pointer-events-none opacity-20" style="background: radial-gradient(60% 60% at 10% 10%, rgba(99,102,241,0.3), rgba(244,63,94,0.25), transparent 60%);"></div>
+        </div>
+
+        <!-- Notifications -->
+        <div class="glass rounded-2xl p-5 sm:p-6 shadow-[0_0_40px_rgba(236,72,153,0.12)]">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold">Notifications</h2>
+            <span class="text-xs text-indigo-200/70">Live preview of updates</span>
+          </div>
+
+          <div id="notifList" class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-emerald-500/10 to-emerald-500/0 border-emerald-400/40">
+          <div class="font-semibold mb-1">Leave Request Approved ✅ by HOD</div>
+          <div class="text-xs text-indigo-200/70">Just now</div>
+        <div class="stamp text-xl font-extrabold text-emerald-300">APPROVED</div></div><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-yellow-500/10 to-yellow-500/0 border-yellow-400/40">
+          <div class="font-semibold mb-1">Leave Request Pending ⏳ with Faculty</div>
+          <div class="text-xs text-indigo-200/70">1d ago</div>
+        <div class="stamp text-xl font-extrabold text-yellow-300">PENDING</div></div></div>
+        </div>
+      </section>
+
+      <!-- Right: Tracker + Badges -->
+      <aside class="space-y-6">
+        <!-- Leave Balance -->
+        <div class="glass rounded-2xl p-5 sm:p-6 shadow-[0_0_40px_rgba(168,85,247,0.12)]">
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-xl font-bold">Leave Balance</h2>
+            <span id="balanceText" class="text-sm text-indigo-200/80">7/10 left</span>
+          </div>
+          <div class="w-full h-4 bg-white/10 rounded-full overflow-hidden">
+            <div id="balanceBar" class="h-full rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600" style="width: 70%;"></div>
+          </div>
+          <p class="text-xs text-indigo-200/70 mt-2">Keep it balanced — your streaks unlock badges!</p>
+        </div>
+
+        <!-- Calendar -->
+        <div class="glass rounded-2xl p-5 sm:p-6 shadow-[0_0_40px_rgba(59,130,246,0.12)]">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold">Leave Tracker</h2>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="flex items-center gap-1"><span class="dot bg-emerald-400"></span> Approved</span>
+              <span class="flex items-center gap-1"><span class="dot bg-red-400"></span> Rejected</span>
+              <span class="flex items-center gap-1"><span class="dot bg-yellow-400"></span> Pending</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mb-3">
+            <button id="prevMonth" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20">←</button>
+            <div class="text-center">
+              <div id="monthLabel" class="font-semibold">September 2025</div>
+              <div class="text-xs text-indigo-200/70">Tap a day to view entries</div>
+            </div>
+            <button id="nextMonth" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20">→</button>
+          </div>
+
+          <div class="grid grid-cols-7 text-center text-xs text-indigo-200/70 mb-2">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+
+          <div id="calGrid" class="cal-grid"><div class="cell rounded-xl bg-white/5 border border-white/10 opacity-30"></div><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">1</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">2</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">3</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"><span class="dot bg-emerald-400" title="APPROVED: 📚 Exam Prep"></span></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">4</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">5</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">6</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">7</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"><span class="dot bg-rose-400" title="REJECTED: 🎉 Event"></span></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">8</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">9</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">10</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"><span class="dot bg-yellow-400" title="PENDING: 😷 Sick"></span></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">11</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">12</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold text-emerald-300">13</div>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200">Today</span>
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">14</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">15</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">16</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">17</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">18</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">19</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">20</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">21</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">22</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">23</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">24</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">25</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">26</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">27</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">28</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">29</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button><button class="cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ">30</div>
+            
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        </button></div>
+
+          <div id="dayDetails" class="mt-4 hidden">
+            <div class="text-sm font-semibold mb-1">Selected Day</div>
+            <div id="dayEvents" class="space-y-2 text-sm"></div>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <!-- <div class="glass rounded-2xl p-5 sm:p-6 shadow-[0_0_40px_rgba(16,185,129,0.12)]">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-xl font-bold">Badges</h2>
+            <span class="text-xs text-indigo-200/70">Collect them all</span>
+          </div>
+
+          <div id="badges" class="grid grid-cols-2 gap-3"><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-amber-400/20 to-amber-400/0 border-amber-300/50 opacity-60">
+          <div class="text-2xl">🌟</div>
+          <div class="font-semibold mt-1">Punctual Star</div>
+          <div class="text-xs text-indigo-200/70">0 leaves this semester</div>
+          <span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-indigo-200/80">Locked</span>
+        </div><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-indigo-400/20 to-indigo-400/0 border-indigo-300/50 ">
+          <div class="text-2xl">⏳</div>
+          <div class="font-semibold mt-1">Balanced Breaker</div>
+          <div class="text-xs text-indigo-200/70">Smart leave usage</div>
+          <span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200">Unlocked</span>
+        </div><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-rose-400/20 to-rose-400/0 border-rose-300/50 opacity-60">
+          <div class="text-2xl">🔥</div>
+          <div class="font-semibold mt-1">Streak Keeper</div>
+          <div class="text-xs text-indigo-200/70">7-day no-leave streak</div>
+          <span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-indigo-200/80">Locked</span>
+        </div><div class="relative rounded-2xl p-4 border glass bg-gradient-to-br from-emerald-400/20 to-emerald-400/0 border-emerald-300/50 opacity-60">
+          <div class="text-2xl">💼</div>
+          <div class="font-semibold mt-1">Pro Planner</div>
+          <div class="text-xs text-indigo-200/70">Plan 3+ days ahead</div>
+          <span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-indigo-200/80">Locked</span>
+        </div></div> -->
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed top-4 right-4 z-50 hidden">
+    <div class="glass rounded-xl px-4 py-3 text-sm font-semibold bg-yellow-500/20 border border-yellow-400/40">
+      <span id="toastText">Emergency off</span>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation
+  <nav class="fixed bottom-0 inset-x-0 z-40 drop-shadow-[0_0_30px_rgba(255,255,255,.05)]">
+    <div class="max-w-3xl mx-auto mb-4 px-3">
+      <div class="glass rounded-2xl p-2 grid grid-cols-6 gap-2 text-sm">
+        <button class="shimmer-btn rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">📚</span>
+          <span class="text-[11px]">Notes</span>
+        </button>
+        <button class="shimmer-btn rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">✅</span>
+          <span class="text-[11px]">Tasks</span>
+        </button>
+        <button class="shimmer-btn rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">📝</span>
+          <span class="text-[11px]">Quiz</span>
+        </button>
+        <button id="quickEmergency" class="shimmer-btn rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">🚨</span>
+          <span class="text-[11px]">Emergency</span>
+        </button>
+        <button class="shimmer-btn rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">🏆</span>
+          <span class="text-[11px]">Leaderboard</span>
+        </button>
+        <button id="navAI" class="rounded-xl py-2.5 hover:bg-white/10 transition flex flex-col items-center gap-1">
+          <span class="text-xl">🤖</span>
+          <span class="text-[11px]">AI Assist</span>
+        </button>
+      </div>
+    </div>
+  </nav> -->
+
+  <!-- Floating glitter particles -->
+  <div id="glitterWrap" class="pointer-events-none fixed inset-0 z-10"><div class="twinkle" style="height: 1.88189px; width: 1.88189px; left: 94.17vw; top: 23.1055vh; animation: 2.09553s ease-in-out 5.91s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 1.2511px; width: 1.2511px; left: 86.7652vw; top: 75.077vh; animation: 3.52113s ease-in-out 3.78s infinite normal none running twinkleAnim; opacity: 0.7;"></div><div class="twinkle" style="height: 1.18966px; width: 1.18966px; left: 1.07734vw; top: 20.5013vh; animation: 4.72032s ease-in-out 5.27s infinite normal none running twinkleAnim; opacity: 0.3;"></div><div class="twinkle" style="height: 1.26379px; width: 1.26379px; left: 65.9467vw; top: 35.3933vh; animation: 3.57402s ease-in-out 4.92s infinite normal none running twinkleAnim; opacity: 0.23;"></div><div class="twinkle" style="height: 1.81728px; width: 1.81728px; left: 88.8781vw; top: 58.4294vh; animation: 3.7711s ease-in-out 4.09s infinite normal none running twinkleAnim; opacity: 0.74;"></div><div class="twinkle" style="height: 1.9549px; width: 1.9549px; left: 41.478vw; top: 79.7073vh; animation: 3.30248s ease-in-out 0.22s infinite normal none running twinkleAnim; opacity: 0.51;"></div><div class="twinkle" style="height: 1.95826px; width: 1.95826px; left: 86.4572vw; top: 74.5709vh; animation: 4.705s ease-in-out 4.11s infinite normal none running twinkleAnim; opacity: 0.36;"></div><div class="twinkle" style="height: 1.55568px; width: 1.55568px; left: 40.664vw; top: 9.35471vh; animation: 2.55615s ease-in-out 1.67s infinite normal none running twinkleAnim; opacity: 0.87;"></div><div class="twinkle" style="height: 1.94204px; width: 1.94204px; left: 55.8745vw; top: 91.8448vh; animation: 2.14852s ease-in-out 1.22s infinite normal none running twinkleAnim; opacity: 0.4;"></div><div class="twinkle" style="height: 1.54539px; width: 1.54539px; left: 33.8394vw; top: 67.7835vh; animation: 3.55081s ease-in-out 2.67s infinite normal none running twinkleAnim; opacity: 0.49;"></div><div class="twinkle" style="height: 2.41238px; width: 2.41238px; left: 68.1498vw; top: 83.0167vh; animation: 4.90608s ease-in-out 5.52s infinite normal none running twinkleAnim; opacity: 0.26;"></div><div class="twinkle" style="height: 2.50496px; width: 2.50496px; left: 17.7746vw; top: 83.6714vh; animation: 2.18599s ease-in-out 1.48s infinite normal none running twinkleAnim; opacity: 0.23;"></div><div class="twinkle" style="height: 2.47531px; width: 2.47531px; left: 63.8526vw; top: 0.187771vh; animation: 4.71955s ease-in-out 4.58s infinite normal none running twinkleAnim; opacity: 0.53;"></div><div class="twinkle" style="height: 2.01603px; width: 2.01603px; left: 27.446vw; top: 98.6986vh; animation: 4.08651s ease-in-out 3.64s infinite normal none running twinkleAnim; opacity: 0.42;"></div><div class="twinkle" style="height: 2.58261px; width: 2.58261px; left: 6.70325vw; top: 19.8685vh; animation: 4.16264s ease-in-out 1.02s infinite normal none running twinkleAnim; opacity: 0.64;"></div><div class="twinkle" style="height: 2.18223px; width: 2.18223px; left: 58.8217vw; top: 60.2704vh; animation: 3.80123s ease-in-out 5.29s infinite normal none running twinkleAnim; opacity: 0.9;"></div><div class="twinkle" style="height: 2.83581px; width: 2.83581px; left: 3.94023vw; top: 69.6949vh; animation: 2.12759s ease-in-out 5.43s infinite normal none running twinkleAnim; opacity: 0.82;"></div><div class="twinkle" style="height: 1.66827px; width: 1.66827px; left: 25.1846vw; top: 82.106vh; animation: 2.8812s ease-in-out 1.11s infinite normal none running twinkleAnim; opacity: 0.88;"></div><div class="twinkle" style="height: 1.19704px; width: 1.19704px; left: 54.8621vw; top: 94.2399vh; animation: 2.74217s ease-in-out 3.12s infinite normal none running twinkleAnim; opacity: 0.87;"></div><div class="twinkle" style="height: 2.62389px; width: 2.62389px; left: 53.5762vw; top: 9.46969vh; animation: 2.45787s ease-in-out 4.71s infinite normal none running twinkleAnim; opacity: 0.48;"></div><div class="twinkle" style="height: 1.38079px; width: 1.38079px; left: 84.2801vw; top: 7.69724vh; animation: 4.42081s ease-in-out 0.71s infinite normal none running twinkleAnim; opacity: 0.68;"></div><div class="twinkle" style="height: 1.64828px; width: 1.64828px; left: 15.0544vw; top: 91.6561vh; animation: 4.77554s ease-in-out 1.9s infinite normal none running twinkleAnim; opacity: 0.46;"></div><div class="twinkle" style="height: 1.96944px; width: 1.96944px; left: 83.9917vw; top: 6.98767vh; animation: 4.88434s ease-in-out 5.05s infinite normal none running twinkleAnim; opacity: 0.44;"></div><div class="twinkle" style="height: 2.56157px; width: 2.56157px; left: 18.5837vw; top: 73.6069vh; animation: 2.45226s ease-in-out 4.72s infinite normal none running twinkleAnim; opacity: 0.35;"></div><div class="twinkle" style="height: 1.91642px; width: 1.91642px; left: 82.1356vw; top: 97.6954vh; animation: 2.59583s ease-in-out 4.14s infinite normal none running twinkleAnim; opacity: 0.32;"></div><div class="twinkle" style="height: 2.80376px; width: 2.80376px; left: 1.82695vw; top: 83.4205vh; animation: 2.32357s ease-in-out 3.17s infinite normal none running twinkleAnim; opacity: 0.3;"></div><div class="twinkle" style="height: 0.818559px; width: 0.818559px; left: 55.2955vw; top: 62.0665vh; animation: 2.52101s ease-in-out 1.1s infinite normal none running twinkleAnim; opacity: 0.78;"></div><div class="twinkle" style="height: 2.7024px; width: 2.7024px; left: 26.593vw; top: 33.8885vh; animation: 4.84635s ease-in-out 1.93s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 2.72957px; width: 2.72957px; left: 89.3863vw; top: 57.1417vh; animation: 2.81585s ease-in-out 2.38s infinite normal none running twinkleAnim; opacity: 0.58;"></div><div class="twinkle" style="height: 1.41532px; width: 1.41532px; left: 79.366vw; top: 75.166vh; animation: 4.84902s ease-in-out 5.93s infinite normal none running twinkleAnim; opacity: 0.72;"></div><div class="twinkle" style="height: 2.16511px; width: 2.16511px; left: 25.5717vw; top: 86.8532vh; animation: 4.91443s ease-in-out 1.19s infinite normal none running twinkleAnim; opacity: 0.71;"></div><div class="twinkle" style="height: 2.44217px; width: 2.44217px; left: 65.2331vw; top: 85.7863vh; animation: 3.84768s ease-in-out 4.07s infinite normal none running twinkleAnim; opacity: 0.41;"></div><div class="twinkle" style="height: 2.25195px; width: 2.25195px; left: 7.21686vw; top: 28.0556vh; animation: 4.70342s ease-in-out 3.72s infinite normal none running twinkleAnim; opacity: 0.33;"></div><div class="twinkle" style="height: 2.65475px; width: 2.65475px; left: 84.3761vw; top: 20.0978vh; animation: 3.14313s ease-in-out 4.49s infinite normal none running twinkleAnim; opacity: 0.74;"></div><div class="twinkle" style="height: 2.74435px; width: 2.74435px; left: 93.9273vw; top: 45.0725vh; animation: 4.32915s ease-in-out 0.57s infinite normal none running twinkleAnim; opacity: 0.86;"></div><div class="twinkle" style="height: 1.02081px; width: 1.02081px; left: 56.4882vw; top: 0.664395vh; animation: 4.34374s ease-in-out 5.98s infinite normal none running twinkleAnim; opacity: 0.6;"></div><div class="twinkle" style="height: 2.05558px; width: 2.05558px; left: 94.9296vw; top: 61.9112vh; animation: 4.01566s ease-in-out 3.51s infinite normal none running twinkleAnim; opacity: 0.41;"></div><div class="twinkle" style="height: 2.82433px; width: 2.82433px; left: 89.0154vw; top: 51.9796vh; animation: 3.90421s ease-in-out 5.83s infinite normal none running twinkleAnim; opacity: 0.53;"></div><div class="twinkle" style="height: 2.7451px; width: 2.7451px; left: 82.9743vw; top: 24.4383vh; animation: 3.66572s ease-in-out 5.44s infinite normal none running twinkleAnim; opacity: 0.57;"></div><div class="twinkle" style="height: 1.84857px; width: 1.84857px; left: 35.0589vw; top: 33.0604vh; animation: 4.7823s ease-in-out 3.21s infinite normal none running twinkleAnim; opacity: 0.34;"></div><div class="twinkle" style="height: 1.69789px; width: 1.69789px; left: 41.7405vw; top: 57.1709vh; animation: 3.06695s ease-in-out 0.8s infinite normal none running twinkleAnim; opacity: 0.79;"></div><div class="twinkle" style="height: 1.50116px; width: 1.50116px; left: 23.4619vw; top: 66.7239vh; animation: 2.42765s ease-in-out 4.06s infinite normal none running twinkleAnim; opacity: 0.89;"></div><div class="twinkle" style="height: 2.90559px; width: 2.90559px; left: 94.1752vw; top: 94.8423vh; animation: 4.81954s ease-in-out 1.85s infinite normal none running twinkleAnim; opacity: 0.75;"></div><div class="twinkle" style="height: 2.75973px; width: 2.75973px; left: 32.0664vw; top: 89.4379vh; animation: 4.26057s ease-in-out 5.57s infinite normal none running twinkleAnim; opacity: 0.4;"></div><div class="twinkle" style="height: 1.21225px; width: 1.21225px; left: 62.8927vw; top: 73.7144vh; animation: 3.99996s ease-in-out 5.1s infinite normal none running twinkleAnim; opacity: 0.79;"></div><div class="twinkle" style="height: 0.958193px; width: 0.958193px; left: 34.497vw; top: 36.3448vh; animation: 4.51283s ease-in-out 2.37s infinite normal none running twinkleAnim; opacity: 0.3;"></div><div class="twinkle" style="height: 2.7785px; width: 2.7785px; left: 93.1603vw; top: 18.6844vh; animation: 2.94163s ease-in-out 0.2s infinite normal none running twinkleAnim; opacity: 0.49;"></div><div class="twinkle" style="height: 2.28864px; width: 2.28864px; left: 17.1584vw; top: 2.33608vh; animation: 2.76051s ease-in-out 1.49s infinite normal none running twinkleAnim; opacity: 0.38;"></div><div class="twinkle" style="height: 2.03152px; width: 2.03152px; left: 98.5224vw; top: 75.3808vh; animation: 4.97575s ease-in-out 1.22s infinite normal none running twinkleAnim; opacity: 0.52;"></div><div class="twinkle" style="height: 1.11284px; width: 1.11284px; left: 12.575vw; top: 65.4345vh; animation: 3.10886s ease-in-out 1.17s infinite normal none running twinkleAnim; opacity: 0.75;"></div><div class="twinkle" style="height: 1.32946px; width: 1.32946px; left: 99.0763vw; top: 12.9421vh; animation: 3.09851s ease-in-out 2.47s infinite normal none running twinkleAnim; opacity: 0.45;"></div><div class="twinkle" style="height: 2.07838px; width: 2.07838px; left: 28.5239vw; top: 72.0512vh; animation: 4.87461s ease-in-out 0.68s infinite normal none running twinkleAnim; opacity: 0.81;"></div><div class="twinkle" style="height: 1.63477px; width: 1.63477px; left: 85.5968vw; top: 27.9057vh; animation: 2.52595s ease-in-out 3.71s infinite normal none running twinkleAnim; opacity: 0.81;"></div><div class="twinkle" style="height: 2.06092px; width: 2.06092px; left: 2.35029vw; top: 42.1351vh; animation: 2.35133s ease-in-out 3.95s infinite normal none running twinkleAnim; opacity: 0.27;"></div><div class="twinkle" style="height: 0.878016px; width: 0.878016px; left: 0.445689vw; top: 70.0787vh; animation: 2.55663s ease-in-out 1.42s infinite normal none running twinkleAnim; opacity: 0.35;"></div><div class="twinkle" style="height: 2.22562px; width: 2.22562px; left: 2.19579vw; top: 85.764vh; animation: 4.27922s ease-in-out 3.06s infinite normal none running twinkleAnim; opacity: 0.7;"></div><div class="twinkle" style="height: 0.905485px; width: 0.905485px; left: 73.3049vw; top: 28.0166vh; animation: 3.943s ease-in-out 2.45s infinite normal none running twinkleAnim; opacity: 0.5;"></div><div class="twinkle" style="height: 2.32355px; width: 2.32355px; left: 62.8825vw; top: 98.4372vh; animation: 3.92604s ease-in-out 1.05s infinite normal none running twinkleAnim; opacity: 0.84;"></div><div class="twinkle" style="height: 2.89384px; width: 2.89384px; left: 35.6759vw; top: 90.9717vh; animation: 3.98687s ease-in-out 1.76s infinite normal none running twinkleAnim; opacity: 0.8;"></div><div class="twinkle" style="height: 1.79019px; width: 1.79019px; left: 68.9316vw; top: 19.4496vh; animation: 2.78218s ease-in-out 1.42s infinite normal none running twinkleAnim; opacity: 0.63;"></div><div class="twinkle" style="height: 1.91985px; width: 1.91985px; left: 26.5076vw; top: 61.3623vh; animation: 3.02953s ease-in-out 1.72s infinite normal none running twinkleAnim; opacity: 0.74;"></div><div class="twinkle" style="height: 2.25681px; width: 2.25681px; left: 9.19946vw; top: 38.6149vh; animation: 4.46262s ease-in-out 5.39s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 1.67124px; width: 1.67124px; left: 66.929vw; top: 37.1755vh; animation: 2.05098s ease-in-out 4.12s infinite normal none running twinkleAnim; opacity: 0.37;"></div><div class="twinkle" style="height: 2.11183px; width: 2.11183px; left: 75.0848vw; top: 81.4589vh; animation: 4.90343s ease-in-out 1.91s infinite normal none running twinkleAnim; opacity: 0.55;"></div><div class="twinkle" style="height: 2.3805px; width: 2.3805px; left: 43.5506vw; top: 12.3968vh; animation: 4.3466s ease-in-out 2.26s infinite normal none running twinkleAnim; opacity: 0.87;"></div><div class="twinkle" style="height: 0.955443px; width: 0.955443px; left: 76.9377vw; top: 9.79304vh; animation: 4.3314s ease-in-out 1.79s infinite normal none running twinkleAnim; opacity: 0.46;"></div><div class="twinkle" style="height: 1.26829px; width: 1.26829px; left: 43.731vw; top: 0.356607vh; animation: 4.50088s ease-in-out 2.16s infinite normal none running twinkleAnim; opacity: 0.83;"></div><div class="twinkle" style="height: 2.32677px; width: 2.32677px; left: 68.4068vw; top: 4.90799vh; animation: 3.60412s ease-in-out 0.15s infinite normal none running twinkleAnim; opacity: 0.52;"></div><div class="twinkle" style="height: 2.52702px; width: 2.52702px; left: 0.0625341vw; top: 20.5551vh; animation: 2.45304s ease-in-out 1.31s infinite normal none running twinkleAnim; opacity: 0.84;"></div><div class="twinkle" style="height: 2.35889px; width: 2.35889px; left: 9.24093vw; top: 51.7117vh; animation: 2.45777s ease-in-out 5.85s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 2.54124px; width: 2.54124px; left: 83.2193vw; top: 63.5052vh; animation: 3.28752s ease-in-out 3.86s infinite normal none running twinkleAnim; opacity: 0.63;"></div><div class="twinkle" style="height: 2.34348px; width: 2.34348px; left: 88.1263vw; top: 24.5101vh; animation: 2.0327s ease-in-out 0.72s infinite normal none running twinkleAnim; opacity: 0.26;"></div><div class="twinkle" style="height: 2.63832px; width: 2.63832px; left: 85.6118vw; top: 88.6635vh; animation: 2.3409s ease-in-out 2.95s infinite normal none running twinkleAnim; opacity: 0.67;"></div><div class="twinkle" style="height: 2.63185px; width: 2.63185px; left: 80.6324vw; top: 55.6814vh; animation: 3.98726s ease-in-out 3.3s infinite normal none running twinkleAnim; opacity: 0.63;"></div><div class="twinkle" style="height: 1.24352px; width: 1.24352px; left: 17.2937vw; top: 66.991vh; animation: 4.50795s ease-in-out 3.19s infinite normal none running twinkleAnim; opacity: 0.89;"></div><div class="twinkle" style="height: 2.66534px; width: 2.66534px; left: 3.80795vw; top: 78.8017vh; animation: 4.73916s ease-in-out 1.02s infinite normal none running twinkleAnim; opacity: 0.53;"></div><div class="twinkle" style="height: 1.39183px; width: 1.39183px; left: 86.6509vw; top: 33.471vh; animation: 3.74233s ease-in-out 4.4s infinite normal none running twinkleAnim; opacity: 0.48;"></div><div class="twinkle" style="height: 1.91903px; width: 1.91903px; left: 44.073vw; top: 92.2156vh; animation: 3.67473s ease-in-out 5.1s infinite normal none running twinkleAnim; opacity: 0.57;"></div><div class="twinkle" style="height: 2.20513px; width: 2.20513px; left: 32.9569vw; top: 70.1551vh; animation: 3.32091s ease-in-out 0.96s infinite normal none running twinkleAnim; opacity: 0.6;"></div><div class="twinkle" style="height: 1.94806px; width: 1.94806px; left: 22.5223vw; top: 51.2171vh; animation: 2.82178s ease-in-out 5.85s infinite normal none running twinkleAnim; opacity: 0.61;"></div><div class="twinkle" style="height: 1.44052px; width: 1.44052px; left: 47.4757vw; top: 66.0386vh; animation: 3.84113s ease-in-out 5.08s infinite normal none running twinkleAnim; opacity: 0.27;"></div><div class="twinkle" style="height: 2.70561px; width: 2.70561px; left: 86.9298vw; top: 88.4981vh; animation: 3.17739s ease-in-out 0.98s infinite normal none running twinkleAnim; opacity: 0.53;"></div><div class="twinkle" style="height: 2.81441px; width: 2.81441px; left: 68.5332vw; top: 1.41473vh; animation: 3.24542s ease-in-out 4.88s infinite normal none running twinkleAnim; opacity: 0.8;"></div><div class="twinkle" style="height: 2.8481px; width: 2.8481px; left: 70.3374vw; top: 96.7904vh; animation: 4.54949s ease-in-out 4.18s infinite normal none running twinkleAnim; opacity: 0.66;"></div><div class="twinkle" style="height: 0.809622px; width: 0.809622px; left: 93.1845vw; top: 0.291382vh; animation: 4.67245s ease-in-out 0.41s infinite normal none running twinkleAnim; opacity: 0.58;"></div><div class="twinkle" style="height: 2.15475px; width: 2.15475px; left: 4.04591vw; top: 33.0141vh; animation: 4.03652s ease-in-out 1.5s infinite normal none running twinkleAnim; opacity: 0.21;"></div><div class="twinkle" style="height: 1.37854px; width: 1.37854px; left: 23.6079vw; top: 58.6876vh; animation: 3.34369s ease-in-out 5.6s infinite normal none running twinkleAnim; opacity: 0.56;"></div><div class="twinkle" style="height: 2.06624px; width: 2.06624px; left: 74.2326vw; top: 52.6592vh; animation: 3.42606s ease-in-out 1.61s infinite normal none running twinkleAnim; opacity: 0.86;"></div><div class="twinkle" style="height: 2.61823px; width: 2.61823px; left: 81.7761vw; top: 16.1406vh; animation: 2.59629s ease-in-out 0.48s infinite normal none running twinkleAnim; opacity: 0.71;"></div><div class="twinkle" style="height: 1.91643px; width: 1.91643px; left: 31.2268vw; top: 91.0421vh; animation: 4.11946s ease-in-out 0.59s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 1.33249px; width: 1.33249px; left: 35.5871vw; top: 3.06092vh; animation: 2.92703s ease-in-out 2.59s infinite normal none running twinkleAnim; opacity: 0.48;"></div><div class="twinkle" style="height: 1.41254px; width: 1.41254px; left: 5.88285vw; top: 76.3906vh; animation: 3.53474s ease-in-out 3.67s infinite normal none running twinkleAnim; opacity: 0.51;"></div><div class="twinkle" style="height: 2.36132px; width: 2.36132px; left: 68.5478vw; top: 64.8397vh; animation: 2.09918s ease-in-out 1.8s infinite normal none running twinkleAnim; opacity: 0.33;"></div><div class="twinkle" style="height: 1.92743px; width: 1.92743px; left: 77.159vw; top: 6.89303vh; animation: 4.34839s ease-in-out 4.62s infinite normal none running twinkleAnim; opacity: 0.26;"></div><div class="twinkle" style="height: 2.23088px; width: 2.23088px; left: 98.4208vw; top: 24.1539vh; animation: 3.19818s ease-in-out 5.85s infinite normal none running twinkleAnim; opacity: 0.69;"></div><div class="twinkle" style="height: 1.84896px; width: 1.84896px; left: 6.16351vw; top: 52.3809vh; animation: 2.03991s ease-in-out 0.93s infinite normal none running twinkleAnim; opacity: 0.66;"></div><div class="twinkle" style="height: 2.03025px; width: 2.03025px; left: 93.4248vw; top: 30.3577vh; animation: 4.34123s ease-in-out 0.46s infinite normal none running twinkleAnim; opacity: 0.31;"></div><div class="twinkle" style="height: 1.3598px; width: 1.3598px; left: 47.8767vw; top: 5.94974vh; animation: 4.81617s ease-in-out 4.98s infinite normal none running twinkleAnim; opacity: 0.51;"></div><div class="twinkle" style="height: 2.05417px; width: 2.05417px; left: 81.7771vw; top: 93.2159vh; animation: 2.7392s ease-in-out 5.4s infinite normal none running twinkleAnim; opacity: 0.49;"></div><div class="twinkle" style="height: 2.61575px; width: 2.61575px; left: 67.6202vw; top: 60.2764vh; animation: 3.0221s ease-in-out 0.91s infinite normal none running twinkleAnim; opacity: 0.34;"></div><div class="twinkle" style="height: 1.03501px; width: 1.03501px; left: 26.8431vw; top: 22.0017vh; animation: 4.387s ease-in-out 3.69s infinite normal none running twinkleAnim; opacity: 0.48;"></div><div class="twinkle" style="height: 1.77708px; width: 1.77708px; left: 41.5015vw; top: 97.8518vh; animation: 3.64534s ease-in-out 5.47s infinite normal none running twinkleAnim; opacity: 0.54;"></div><div class="twinkle" style="height: 1.92869px; width: 1.92869px; left: 0.251436vw; top: 18.5952vh; animation: 2.26789s ease-in-out 4.14s infinite normal none running twinkleAnim; opacity: 0.23;"></div><div class="twinkle" style="height: 1.49061px; width: 1.49061px; left: 71.0749vw; top: 97.3324vh; animation: 2.04215s ease-in-out 1.56s infinite normal none running twinkleAnim; opacity: 0.26;"></div><div class="twinkle" style="height: 1.89876px; width: 1.89876px; left: 22.537vw; top: 34.2446vh; animation: 2.79595s ease-in-out 2.34s infinite normal none running twinkleAnim; opacity: 0.31;"></div><div class="twinkle" style="height: 1.9987px; width: 1.9987px; left: 44.2473vw; top: 83.4688vh; animation: 2.62569s ease-in-out 2.49s infinite normal none running twinkleAnim; opacity: 0.81;"></div><div class="twinkle" style="height: 2.23771px; width: 2.23771px; left: 78.1743vw; top: 17.3482vh; animation: 4.09563s ease-in-out 0.01s infinite normal none running twinkleAnim; opacity: 0.59;"></div><div class="twinkle" style="height: 2.50943px; width: 2.50943px; left: 13.7541vw; top: 16.1889vh; animation: 4.37518s ease-in-out 4.88s infinite normal none running twinkleAnim; opacity: 0.67;"></div><div class="twinkle" style="height: 2.40838px; width: 2.40838px; left: 4.18588vw; top: 85.2892vh; animation: 4.64349s ease-in-out 0.24s infinite normal none running twinkleAnim; opacity: 0.65;"></div><div class="twinkle" style="height: 2.89231px; width: 2.89231px; left: 36.8828vw; top: 4.1661vh; animation: 2.54775s ease-in-out 5.78s infinite normal none running twinkleAnim; opacity: 0.43;"></div><div class="twinkle" style="height: 2.99091px; width: 2.99091px; left: 38.1073vw; top: 64.8303vh; animation: 2.33175s ease-in-out 5.82s infinite normal none running twinkleAnim; opacity: 0.4;"></div><div class="twinkle" style="height: 2.68268px; width: 2.68268px; left: 41.3929vw; top: 34.1199vh; animation: 4.26293s ease-in-out 0.24s infinite normal none running twinkleAnim; opacity: 0.66;"></div><div class="twinkle" style="height: 2.16755px; width: 2.16755px; left: 39.2832vw; top: 58.6723vh; animation: 3.65503s ease-in-out 1.65s infinite normal none running twinkleAnim; opacity: 0.2;"></div><div class="twinkle" style="height: 1.94694px; width: 1.94694px; left: 25.4298vw; top: 62.9748vh; animation: 2.89723s ease-in-out 5.48s infinite normal none running twinkleAnim; opacity: 0.79;"></div><div class="twinkle" style="height: 1.4762px; width: 1.4762px; left: 49.5044vw; top: 11.1819vh; animation: 3.04843s ease-in-out 0.02s infinite normal none running twinkleAnim; opacity: 0.27;"></div><div class="twinkle" style="height: 1.05992px; width: 1.05992px; left: 36.5023vw; top: 36.9628vh; animation: 4.88048s ease-in-out 1.89s infinite normal none running twinkleAnim; opacity: 0.67;"></div><div class="twinkle" style="height: 1.02376px; width: 1.02376px; left: 49.6516vw; top: 75.8765vh; animation: 4.46794s ease-in-out 4.24s infinite normal none running twinkleAnim; opacity: 0.76;"></div><div class="twinkle" style="height: 1.57209px; width: 1.57209px; left: 83.4304vw; top: 83.5304vh; animation: 3.45242s ease-in-out 1.55s infinite normal none running twinkleAnim; opacity: 0.55;"></div><div class="twinkle" style="height: 2.23273px; width: 2.23273px; left: 44.7627vw; top: 94.3527vh; animation: 3.57974s ease-in-out 1.07s infinite normal none running twinkleAnim; opacity: 0.83;"></div><div class="twinkle" style="height: 2.30233px; width: 2.30233px; left: 3.63422vw; top: 21.0014vh; animation: 4.24089s ease-in-out 4.21s infinite normal none running twinkleAnim; opacity: 0.71;"></div></div>
+  <!-- Shooting star (spawned dynamically) -->
+  <div id="shootWrap" class="pointer-events-none fixed inset-0 z-10"></div>
+
+  <script>
+    // Add random glitter dots + extra density
+    (function glitter(){
+      const wrap = document.getElementById('glitterWrap');
+      const N = 120;
+      for (let i=0; i<N; i++){
+        const s = document.createElement('div');
+        const size = Math.random()*2.2 + 0.8;
+        s.className = 'twinkle';
+        s.style.width = s.style.height = size + 'px';
+        s.style.left = Math.random()*100 + 'vw';
+        s.style.top = Math.random()*100 + 'vh';
+        const delay = (Math.random()*6).toFixed(2);
+        s.style.animation = `twinkleAnim ${2 + Math.random()*3}s ease-in-out ${delay}s infinite`;
+        s.style.opacity = (Math.random()*0.7 + 0.2).toFixed(2);
+        wrap.appendChild(s);
+      }
+    })();
+
+    // Shooting stars every few seconds
+    (function meteor(){
+      const wrap = document.getElementById('shootWrap');
+      function spawn(){
+        const m = document.createElement('div');
+        m.className = 'shooting-star';
+        const delay = Math.random()*3 + 0.5;
+        m.style.animation = `shoot ${2.2 + Math.random()*1.4}s ease-in-out ${delay}s 1 forwards`;
+        wrap.appendChild(m);
+        setTimeout(()=> m.remove(), 4500);
+      }
+      setInterval(()=>{
+        if (document.hidden) return; // pause when not visible
+        if (Math.random() > 0.6) spawn();
+      }, 2500);
+    })();
+
+    // State
+    const state = {
+      totalLeaves: 10,
+      usedLeaves: 3, // sample used
+      emergency: false,
+      currentMonth: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+      events: [
+        // sample data
+        { date: '2025-09-03', status: 'approved', reason: '📚 Exam Prep', to: 'HOD' },
+        { date: '2025-09-07', status: 'rejected', reason: '🎉 Event', to: 'Class Advisor' },
+        { date: '2025-09-10', status: 'pending', reason: '😷 Sick', to: 'Faculty' },
+      ],
+      notifications: [
+        { id: cryptoRandom(), title: 'Leave Request Approved ✅ by HOD', status: 'approved', time: 'Just now' },
+        { id: cryptoRandom(), title: 'Leave Request Pending ⏳ with Faculty', status: 'pending', time: '1d ago' },
+      ],
+    };
+
+    // Helpers
+    function cryptoRandom() {
+      const arr = new Uint32Array(1);
+      if (crypto && crypto.getRandomValues) crypto.getRandomValues(arr);
+      else arr[0] = Math.floor(Math.random() * 1e9);
+      return 'id_' + arr[0].toString(36) + '_' + Date.now().toString(36);
+    }
+    function fmtDate(d) {
+      const z = n => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`;
+    }
+    function parseISO(str) {
+      const [y,m,d] = str.split('-').map(Number);
+      return new Date(y, m-1, d);
+    }
+    function dateRange(from, to) {
+      const out = [];
+      let d = new Date(from);
+      while (d <= to) {
+        out.push(fmtDate(d));
+        d.setDate(d.getDate()+1);
+      }
+      return out;
+    }
+
+    // UI Elements
+    const department = document.getElementById('department');
+    const year = document.getElementById('year');
+    const dateFrom = document.getElementById('dateFrom');
+    const dateTo = document.getElementById('dateTo');
+    const reason = document.getElementById('reason');
+    const sendTo = document.getElementById('sendTo');
+
+    const aiBtn = document.getElementById('aiBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    const letterCard = document.getElementById('letterCard');
+    const letterText = document.getElementById('letterText');
+    const copyLetter = document.getElementById('copyLetter');
+
+    const balanceText = document.getElementById('balanceText');
+    const balanceBar = document.getElementById('balanceBar');
+
+    const monthLabel = document.getElementById('monthLabel');
+    const calGrid = document.getElementById('calGrid');
+    const dayDetails = document.getElementById('dayDetails');
+    const dayEvents = document.getElementById('dayEvents');
+    const prevMonth = document.getElementById('prevMonth');
+    const nextMonth = document.getElementById('nextMonth');
+
+    const notifList = document.getElementById('notifList');
+
+    const emergencyToggle = document.getElementById('emergencyToggle');
+    const toggleKnob = document.getElementById('toggleKnob');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toastText');
+
+    const quickEmergency = document.getElementById('quickEmergency');
+    const navAI = document.getElementById('navAI');
+
+    // Initialize fields with today's date
+    (function initDates(){
+      const today = new Date();
+      const t = fmtDate(today);
+      dateFrom.value = t;
+      dateTo.value = t;
+    })();
+
+    // Render functions
+    function renderBalance() {
+      const left = Math.max(0, state.totalLeaves - state.usedLeaves);
+      const pct = Math.max(0, Math.min(100, (left / state.totalLeaves) * 100));
+      balanceText.textContent = `${left}/${state.totalLeaves} left`;
+      balanceBar.style.width = `${pct}%`;
+      balanceBar.className =
+        'h-full rounded-full ' +
+        (pct >= 60 ? 'bg-gradient-to-r from-emerald-400 to-emerald-600' :
+         pct >= 30 ? 'bg-gradient-to-r from-amber-400 to-yellow-500' :
+                     'bg-gradient-to-r from-rose-400 to-red-600 pulse');
+    }
+
+    function renderCalendar() {
+      const cur = state.currentMonth;
+      const year = cur.getFullYear();
+      const month = cur.getMonth();
+      const monthName = cur.toLocaleString('default', { month: 'long' });
+      monthLabel.textContent = `${monthName} ${year}`;
+
+      // First day and days in month
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month+1, 0).getDate();
+
+      calGrid.innerHTML = '';
+
+      // Empty cells before first day
+      for (let i=0; i<firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'cell rounded-xl bg-white/5 border border-white/10 opacity-30';
+        calGrid.appendChild(empty);
+      }
+
+      // Create map for events per day
+      const byDate = {};
+      state.events.forEach(e => {
+        const d = e.date;
+        if (!byDate[d]) byDate[d] = [];
+        byDate[d].push(e);
+      });
+
+      // Day cells
+      for (let day=1; day<=daysInMonth; day++) {
+        const cellDate = new Date(year, month, day);
+        const iso = fmtDate(cellDate);
+        const cell = document.createElement('button');
+        cell.className = 'cell rounded-xl bg-white/5 border border-white/10 p-2 text-left hover:bg-white/10 transition relative shadow-[0_0_0_rgba(255,255,255,0)] hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]';
+        const isToday = fmtDate(new Date()) === iso;
+
+        cell.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold ${isToday ? 'text-emerald-300' : ''}">${day}</div>
+            ${isToday ? '<span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200">Today</span>' : ''}
+          </div>
+          <div class="mt-2 flex gap-1 flex-wrap"></div>
+        `;
+
+        const dotWrap = cell.querySelector('div.mt-2');
+
+        (byDate[iso] || []).slice(0,4).forEach(ev => {
+          const dot = document.createElement('span');
+          dot.className = 'dot ' + (
+            ev.status === 'approved' ? 'bg-emerald-400' :
+            ev.status === 'rejected' ? 'bg-rose-400' : 'bg-yellow-400'
+          );
+          dot.title = `${ev.status.toUpperCase()}: ${ev.reason || ''}`;
+          dotWrap.appendChild(dot);
+        });
+
+        cell.addEventListener('click', () => showDay(iso));
+        calGrid.appendChild(cell);
+      }
+    }
+
+    function showDay(iso) {
+      dayDetails.classList.remove('hidden');
+      const list = state.events.filter(e => e.date === iso);
+      const nice = new Date(iso + 'T00:00:00').toDateString();
+      dayEvents.innerHTML = '';
+
+      if (list.length === 0) {
+        dayEvents.innerHTML = `<div class="text-indigo-200/70">No leave entries on ${nice}</div>`;
+        return;
+      }
+
+      list.forEach(e => {
+        const row = document.createElement('div');
+        const color = e.status === 'approved' ? 'text-emerald-300' :
+                      e.status === 'rejected' ? 'text-rose-300' : 'text-yellow-300';
+        const chip = e.status === 'approved' ? 'bg-emerald-500/20 border-emerald-400/40 text-emerald-200' :
+                     e.status === 'rejected' ? 'bg-rose-500/20 border-rose-400/40 text-rose-200' :
+                                               'bg-yellow-500/20 border-yellow-400/40 text-yellow-900';
+        row.className = 'glass rounded-xl p-3 flex items-center justify-between';
+        row.innerHTML = `
+          <div>
+            <div class="font-semibold ${color} capitalize">${e.status}</div>
+            <div class="text-sm text-indigo-200/80">${e.reason || ''}</div>
+            <div class="text-xs text-indigo-300/70">To: ${e.to || '-'}</div>
+          </div>
+          <span class="text-xs px-2 py-1 rounded-md border ${chip}">${new Date(iso + 'T00:00:00').toLocaleDateString()}</span>
+        `;
+        dayEvents.appendChild(row);
+      });
+    }
+
+    function renderNotifs() {
+      notifList.innerHTML = '';
+      state.notifications.slice(0,6).forEach(n => {
+        const card = document.createElement('div');
+        const theme = n.status === 'approved' ? 'from-emerald-500/10 to-emerald-500/0 border-emerald-400/40' :
+                      n.status === 'rejected' ? 'from-rose-500/10 to-rose-500/0 border-rose-400/40' :
+                                                'from-yellow-500/10 to-yellow-500/0 border-yellow-400/40';
+        const stampColor = n.status === 'approved' ? 'text-emerald-300' :
+                           n.status === 'rejected' ? 'text-rose-300' : 'text-yellow-300';
+
+        card.className = `relative rounded-2xl p-4 border glass bg-gradient-to-br ${theme}`;
+        card.innerHTML = `
+          <div class="font-semibold mb-1">${n.title}</div>
+          <div class="text-xs text-indigo-200/70">${n.time}</div>
+        `;
+
+        // Stamp
+        const stamp = document.createElement('div');
+        stamp.className = `stamp text-xl font-extrabold ${stampColor}`;
+        stamp.textContent = n.status === 'approved' ? 'APPROVED' :
+                            n.status === 'rejected' ? 'REJECTED' : 'PENDING';
+        card.appendChild(stamp);
+
+        notifList.appendChild(card);
+      });
+    }
+
+    function renderBadges() {
+      const container = document.getElementById('badges');
+      container.innerHTML = '';
+
+      // Determine unlocks from state
+      const left = state.totalLeaves - state.usedLeaves;
+      const used = state.usedLeaves;
+      const unlocked = [];
+
+      // 🌟 Punctual Star: 0 leaves in semester
+      if (used === 0) unlocked.push({ icon: '🌟', name: 'Punctual Star', desc: '0 leaves this semester', color: 'from-amber-400/20 to-amber-400/0 border-amber-300/50' });
+
+      // ⏳ Balanced Breaker: used leave wisely (<= 50% used)
+      if (used > 0 && used <= state.totalLeaves / 2) unlocked.push({ icon: '⏳', name: 'Balanced Breaker', desc: 'Smart leave usage', color: 'from-indigo-400/20 to-indigo-400/0 border-indigo-300/50' });
+
+      // Default locked previews
+      const all = [
+        { icon: '🌟', name: 'Punctual Star', desc: '0 leaves this semester', color: 'from-amber-400/20 to-amber-400/0 border-amber-300/50' },
+        { icon: '⏳', name: 'Balanced Breaker', desc: 'Smart leave usage', color: 'from-indigo-400/20 to-indigo-400/0 border-indigo-300/50' },
+        { icon: '🔥', name: 'Streak Keeper', desc: '7-day no-leave streak', color: 'from-rose-400/20 to-rose-400/0 border-rose-300/50' },
+        { icon: '💼', name: 'Pro Planner', desc: 'Plan 3+ days ahead', color: 'from-emerald-400/20 to-emerald-400/0 border-emerald-300/50' },
+      ];
+
+      all.forEach(b => {
+        const isUnlocked = unlocked.find(u => u.name === b.name);
+        const card = document.createElement('div');
+        card.className = `relative rounded-2xl p-4 border glass bg-gradient-to-br ${b.color} ${isUnlocked ? '' : 'opacity-60'}`;
+        card.innerHTML = `
+          <div class="text-2xl">${b.icon}</div>
+          <div class="font-semibold mt-1">${b.name}</div>
+          <div class="text-xs text-indigo-200/70">${b.desc}</div>
+          ${isUnlocked ? '<span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-200">Unlocked</span>' :
+                         '<span class="absolute top-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/20 text-indigo-200/80">Locked</span>'}
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function showToast(text, color = 'red') {
+      toastText.textContent = text;
+      const box = toast.firstElementChild;
+      box.className = `glass rounded-xl px-4 py-3 text-sm font-semibold bg-${color}-500/20 border border-${color}-400/40`;
+      toast.classList.remove('hidden');
+      toast.classList.add('toast-enter');
+      setTimeout(() => {
+        toast.classList.add('toast-enter-active');
+        setTimeout(() => {
+          toast.classList.remove('toast-enter', 'toast-enter-active');
+          // Auto hide
+          toast.classList.add('toast-exit');
+          setTimeout(() => {
+            toast.classList.add('toast-exit-active');
+            setTimeout(() => {
+              toast.classList.remove('toast-exit', 'toast-exit-active');
+              toast.classList.add('hidden');
+            }, 300);
+          }, 1600);
+        }, 10);
+      }, 10);
+    }
+
+    function validateForm() {
+      const errors = [];
+      if (!department.value) errors.push('Department');
+      if (!year.value) errors.push('Year');
+      if (!dateFrom.value) errors.push('From date');
+      if (!dateTo.value) errors.push('To date');
+      if (!reason.value.trim()) errors.push('Reason');
+      if (!sendTo.value) errors.push('Recipient');
+
+      const from = new Date(dateFrom.value);
+      const to = new Date(dateTo.value);
+      if (dateFrom.value && dateTo.value && to < from) {
+        errors.push('Date range (To must be after From)');
+      }
+      return errors;
+    }
+
+    // Interactions
+    aiBtn.addEventListener('click', () => {
+      const errors = validateForm();
+      if (errors.length) {
+        showToast('Please complete: ' + errors.join(', '), 'yellow');
+        return;
+      }
+      const today = new Date();
+      const dpt = department.value;
+      const yr = year.value;
+      const from = new Date(dateFrom.value).toLocaleDateString();
+      const to = new Date(dateTo.value).toLocaleDateString();
+      const rsn = reason.value.trim();
+      const toRole = sendTo.value;
+      const urgent = state.emergency;
+
+      const template = `To,
+${toRole}, ${dpt} Department
+
+Date: ${today.toLocaleDateString()}
+
+Subject: Leave Application (${urgent ? 'Emergency' : 'Planned'})
+
+Respected ${toRole},
+
+I am a ${yr} student from the ${dpt} department. I kindly request leave from ${from} to ${to} due to: ${rsn}.
+I assure you that I will complete any missed work and stay updated with the class.
+
+${urgent ? 'This is an emergency request. I appreciate your prompt consideration.' : 'Thank you for your understanding and support.'}
+
+Yours sincerely,
+[Your Name]
+[Roll No.]
+[Contact]`;
+
+      letterText.textContent = template;
+      letterCard.classList.remove('hidden');
+      showToast('Your letter is ready! 🤖', 'indigo');
+    });
+
+    copyLetter.addEventListener('click', async () => {
+      const text = letterText.textContent.trim();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Letter copied to clipboard ✅', 'emerald');
+      } catch {
+        showToast('Copy failed — select and copy manually', 'yellow');
+      }
+    });
+
+    submitBtn.addEventListener('click', () => {
+      const errs = validateForm();
+      if (errs.length) {
+        showToast('Please complete: ' + errs.join(', '), 'yellow');
+        return;
+      }
+
+      // Add events across the date range as pending
+      const range = dateRange(parseISO(dateFrom.value), parseISO(dateTo.value));
+      range.forEach(d => {
+        state.events.push({
+          date: d,
+          status: 'pending',
+          reason: reason.value.trim(),
+          to: sendTo.value,
+          emergency: state.emergency
+        });
+      });
+
+      // Use leaves count equals number of days in range
+      state.usedLeaves = Math.min(state.totalLeaves, state.usedLeaves + range.length);
+
+      // Notification
+      const title = state.emergency
+        ? `Emergency Leave Sent 🚨 to ${sendTo.value}`
+        : `Leave Request Pending ⏳ with ${sendTo.value}`;
+      state.notifications.unshift({
+        id: cryptoRandom(),
+        title,
+        status: state.emergency ? 'pending' : 'pending',
+        time: 'Just now'
+      });
+
+      renderBalance();
+      renderCalendar();
+      renderNotifs();
+
+      showToast('Leave request submitted!', 'emerald');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      department.value = '';
+      year.value = '';
+      const today = fmtDate(new Date());
+      dateFrom.value = today;
+      dateTo.value = today;
+      reason.value = '';
+      sendTo.value = '';
+      if (state.emergency) toggleEmergency(false);
+      letterCard.classList.add('hidden');
+      showToast('Form reset', 'indigo');
+    });
+
+    function toggleEmergency(force) {
+      const next = typeof force === 'boolean' ? force : !state.emergency;
+      state.emergency = next;
+      if (next) {
+        toggleKnob.style.transform = 'translateX(2.25rem)';
+        toggleKnob.classList.remove('bg-red-400');
+        toggleKnob.classList.add('bg-red-300');
+        emergencyToggle.classList.remove('bg-red-500/30');
+        emergencyToggle.classList.add('bg-red-500/50');
+        showToast(`Emergency alert sent to ${sendTo.value || 'recipient'} 🚨`, 'red');
+      } else {
+        toggleKnob.style.transform = 'translateX(0.25rem)';
+        toggleKnob.classList.add('bg-red-400');
+        toggleKnob.classList.remove('bg-red-300');
+        emergencyToggle.classList.add('bg-red-500/30');
+        emergencyToggle.classList.remove('bg-red-500/50');
+        showToast('Emergency off', 'yellow');
+      }
+    }
+
+    emergencyToggle.addEventListener('click', () => toggleEmergency());
+
+    // Calendar month navigation
+    prevMonth.addEventListener('click', () => {
+      const d = state.currentMonth;
+      state.currentMonth = new Date(d.getFullYear(), d.getMonth() - 1, 1);
+      renderCalendar();
+      dayDetails.classList.add('hidden');
+    });
+    nextMonth.addEventListener('click', () => {
+      const d = state.currentMonth;
+      state.currentMonth = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+      renderCalendar();
+      dayDetails.classList.add('hidden');
+    });
+
+    // Quick actions bottom nav
+    quickEmergency.addEventListener('click', () => {
+      if (!state.emergency) toggleEmergency(true);
+      else showToast('Emergency already on', 'yellow');
+    });
+    navAI.addEventListener('click', () => {
+      aiBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      showToast('Scroll to AI letter ✨', 'indigo');
+    });
+
+    // Initial renders
+    renderBalance();
+    renderCalendar();
+    renderNotifs();
+    renderBadges();
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e6a84d94ad8537',t:'MTc1Nzc1NjE1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./Apply for Leave 📝_files/saved_resource.html"></iframe>
+
+</body></html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title><link rel="icon" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --cosmic-purple: #6a0dad;
+            --stellar-blue: #4169e1;
+            --nebula-pink: #ff1493;
+            --galaxy-gold: #ffd700;
+            --stardust-silver: #c0c0c0;
+            --void-black: #0a0a0f;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: radial-gradient(ellipse at center, #1a0033 0%, #0d001a 50%, #000000 100%);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Animated Galaxy Background */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: galaxyDrift 60s linear infinite;
+        }
+        
+        @keyframes galaxyDrift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-200px, -100px); }
+        }
+        
+        /* Glittering Stardust */
+        .stardust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -5;
+        }
+        
+        .glitter {
+            position: absolute;
+            background: linear-gradient(45deg, #fff, #ffd700, #fff);
+            border-radius: 50%;
+            animation: glitterTwinkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes glitterTwinkle {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(0.5) rotate(0deg);
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2) rotate(180deg);
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            }
+        }
+        
+        /* Nebula Clouds */
+        .nebula {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: nebulaDrift 20s ease-in-out infinite;
+            z-index: -8;
+        }
+        
+        .nebula-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.3), transparent);
+            top: 10%;
+            left: 10%;
+        }
+        
+        .nebula-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(65, 105, 225, 0.2), transparent);
+            top: 60%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+        
+        .nebula-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(106, 13, 173, 0.25), transparent);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -5s;
+        }
+        
+        @keyframes nebulaDrift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -30px) scale(1.1); }
+            66% { transform: translate(-30px, 40px) scale(0.9); }
+        }
+        
+        /* Constellation Lines */
+        .constellation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -7;
+            pointer-events: none;
+        }
+        
+        .constellation-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: constellationPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes constellationPulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
+        
+        /* Holographic Cards */
+        .cosmic-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .cosmic-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                var(--galaxy-gold), 
+                var(--stellar-blue), 
+                var(--nebula-pink), 
+                var(--cosmic-purple),
+                var(--galaxy-gold));
+            background-size: 400% 400%;
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            animation: rainbowBorder 6s ease infinite;
+            transition: opacity 0.3s;
+        }
+        
+        .cosmic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 50px rgba(255, 215, 0, 0.3);
+        }
+        
+        @keyframes rainbowBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Cosmic Energy Flow */
+        .energy-flow {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--stellar-blue), 
+                var(--galaxy-gold), 
+                var(--nebula-pink), 
+                transparent);
+            animation: energyPulse 3s ease-in-out infinite;
+            top: 50%;
+            left: 0;
+        }
+        
+        @keyframes energyPulse {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scaleX(0); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scaleX(1); 
+            }
+        }
+        
+        /* 3D Rank Orbs */
+        .rank-orb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: orbRotate 8s linear infinite;
+        }
+        
+        .rank-orb::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, 
+                var(--galaxy-gold), 
+                var(--stellar-blue), 
+                var(--nebula-pink), 
+                var(--cosmic-purple),
+                var(--galaxy-gold));
+            z-index: -1;
+            animation: orbGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes orbRotate {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            25% { transform: rotateY(90deg) rotateX(15deg); }
+            50% { transform: rotateY(180deg) rotateX(0deg); }
+            75% { transform: rotateY(270deg) rotateX(-15deg); }
+            100% { transform: rotateY(360deg) rotateX(0deg); }
+        }
+        
+        @keyframes orbGlow {
+            from { filter: blur(5px) brightness(1); }
+            to { filter: blur(8px) brightness(1.5); }
+        }
+        
+        /* Stellar Achievements */
+        .stellar-badge {
+            background: linear-gradient(135deg, var(--galaxy-gold), var(--stellar-blue));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            animation: stellarShimmer 3s ease-in-out infinite;
+        }
+        
+        .stellar-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmerSweep 2s ease-in-out infinite;
+        }
+        
+        @keyframes shimmerSweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes stellarShimmer {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Cosmic Buttons */
+        .cosmic-btn {
+            background: linear-gradient(135deg, var(--stellar-blue), var(--cosmic-purple));
+            border: none;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .cosmic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cosmic-btn:hover::before {
+            left: 100%;
+        }
+        
+        .cosmic-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(65, 105, 225, 0.6);
+        }
+        
+        /* Quantum Stats */
+        .quantum-stat {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .quantum-stat::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: quantumScan 4s ease-in-out infinite;
+        }
+        
+        @keyframes quantumScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Cosmic Title */
+        .cosmic-title {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(45deg, 
+                var(--galaxy-gold), 
+                var(--stellar-blue), 
+                var(--nebula-pink), 
+                var(--cosmic-purple));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cosmicGradient 4s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes cosmicGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .rank-orb { width: 60px; height: 60px; font-size: 1.2rem; }
+            .cosmic-card { margin: 0.5rem; }
+            .nebula { width: 200px; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Galaxy Background -->
+    <div class="galaxy-bg"></div>
+    
+    <!-- Stardust Particles -->
+    <div class="stardust" id="stardust"></div>
+    
+    <!-- Nebula Clouds -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+    
+    <!-- Constellation Lines -->
+    <div class="constellation" id="constellation"></div>
+    
+    <div class="min-h-screen p-4 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <!-- Cosmic Header -->
+            <div class="text-center mb-12">
+                <h1 class="cosmic-title text-6xl font-black mb-6">
+                    ✨ LEADERBOARD ✨
+                </h1>
+                <p class="text-2xl text-white mb-8 opacity-90">
+                    Journey Through the Cosmic Rankings of Champions
+                </p>
+                
+                <!-- Cosmic Control Panel -->
+                <!-- <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button onclick="activateCosmicMode('stellar')" class="cosmic-btn px-8 py-3 rounded-full">
+                        ⭐ Stellar Rankings
+                    </button>
+                    <button onclick="activateCosmicMode('galactic')" class="cosmic-btn px-8 py-3 rounded-full">
+                        🌌 Galactic Credits
+                    </button>
+                    <button onclick="activateCosmicMode('nebula')" class="cosmic-btn px-8 py-3 rounded-full">
+                        🌠 Nebula Mode
+                    </button>
+                    <button onclick="toggleSpaceWeather()" class="cosmic-btn px-8 py-3 rounded-full">
+                        🌪️ Space Weather
+                    </button>
+                </div> -->
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-4 gap-8">
+                <!-- Main Cosmic Leaderboard -->
+                <div class="xl:col-span-3">
+                    <div class="cosmic-card rounded-3xl p-8 relative">
+                        <div class="energy-flow"></div>
+                        <h2 class="text-4xl font-bold text-center mb-8 text-white">
+                            🏆 Cosmic Champions Arena
+                        </h2>
+                        
+                        <!-- Space Weather Alert -->
+                        <div id="spaceWeather" class="cosmic-card rounded-xl p-4 mb-6 border-2 border-yellow-400" style="display: none;">
+                            <div class="flex items-center justify-between">
+                                <span class="text-yellow-400 font-bold">🌪️ Space Weather Alert</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.3s;"></div>
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.6s;"></div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-yellow-300 mt-2" id="weatherStatus">
+                                Solar flares detected! Bonus multipliers active across the galaxy...
+                            </div>
+                        </div>
+                        
+                        <div id="cosmicLeaderboard" class="space-y-6">
+                            <!-- Cosmic players will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cosmic Side Panels -->
+                <div class="space-y-6">
+                    <!-- Stellar Champion -->
+                    <div class="cosmic-card rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-yellow-400">
+                            ⭐ Stellar Champion
+                        </h3>
+                        <div id="stellarChampion" class="text-center">
+                            <!-- Stellar champion data will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Galactic Missions -->
+                    <div class="cosmic-card rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-purple-400">
+                            🚀 Galactic Missions
+                        </h3>
+                        <div id="galacticMissions" class="space-y-4">
+                            <!-- Galactic missions will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Constellation Map -->
+                    <div class="cosmic-card rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-blue-400">
+                            🌟 Constellation Map
+                        </h3>
+                        <div id="constellationMap" class="text-center">
+                            <!-- Constellation visualization will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Cosmic Analytics -->
+                    <div class="cosmic-card rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-green-400">
+                            📊 Cosmic Analytics
+                        </h3>
+                        <div id="cosmicAnalytics">
+                            <!-- Analytics will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cosmic Player Data
+        let cosmicPlayers = [
+            {
+                id: 1,
+                name: "StardustMage",
+                score: 35420,
+                credits: 8850,
+                level: 87,
+                streak: 43,
+                stellarRating: 9.8,
+                cosmicResonance: 96,
+                constellation: "Orion",
+                achievements: ["Nebula Master", "Stellar Pioneer", "Cosmic Guardian"],
+                weeklyCredits: 2290,
+                glitterPower: 94
+            },
+            {
+                id: 2,
+                name: "GalaxyWeaver",
+                score: 38900,
+                credits: 8650,
+                level: 92,
+                streak: 38,
+                stellarRating: 9.6,
+                cosmicResonance: 94,
+                constellation: "Andromeda",
+                achievements: ["Galaxy Architect", "Void Walker", "Star Forger"],
+                weeklyCredits: 2120,
+                glitterPower: 97
+            },
+            {
+                id: 3,
+                name: "NebulaKnight",
+                score: 32300,
+                credits: 9100,
+                level: 81,
+                streak: 51,
+                stellarRating: 9.9,
+                cosmicResonance: 98,
+                constellation: "Cassiopeia",
+                achievements: ["Cosmic Crusader", "Stardust Collector", "Time Weaver"],
+                weeklyCredits: 2450,
+                glitterPower: 99
+            },
+            {
+                id: 4,
+                name: "VoidDancer",
+                score: 36750,
+                credits: 7200,
+                level: 78,
+                streak: 22,
+                stellarRating: 9.2,
+                cosmicResonance: 89,
+                constellation: "Lyra",
+                achievements: ["Void Master", "Cosmic Dancer", "Reality Shifter"],
+                weeklyCredits: 1980,
+                glitterPower: 91
+            },
+            {
+                id: 5,
+                name: "StarForge",
+                score: 34200,
+                credits: 8750,
+                level: 84,
+                streak: 47,
+                stellarRating: 9.7,
+                cosmicResonance: 95,
+                constellation: "Draco",
+                achievements: ["Star Creator", "Cosmic Smith", "Galactic Engineer"],
+                weeklyCredits: 2180,
+                glitterPower: 96
+            }
+        ];
+
+        let currentCosmicMode = 'stellar';
+        let spaceWeatherActive = false;
+
+        // Initialize Cosmic Systems
+        function initCosmicSystems() {
+            createGlitterParticles();
+            createConstellationLines();
+            updateCosmicLeaderboard();
+            updateStellarChampion();
+            updateGalacticMissions();
+            updateConstellationMap();
+            updateCosmicAnalytics();
+            
+            // Cosmic real-time updates
+            setInterval(() => {
+                simulateCosmicActivity();
+                updateCosmicLeaderboard();
+                updateCosmicWeather();
+            }, 12000);
+            
+            // Glitter regeneration
+            setInterval(createGlitterParticles, 8000);
+        }
+
+        // Create glittering stardust particles
+        function createGlitterParticles() {
+            const stardust = document.getElementById('stardust');
+            
+            // Clear old particles
+            const oldGlitter = stardust.querySelectorAll('.glitter');
+            oldGlitter.forEach(particle => {
+                if (Math.random() > 0.7) particle.remove();
+            });
+            
+            // Create new glitter
+            for (let i = 0; i < 30; i++) {
+                const glitter = document.createElement('div');
+                glitter.className = 'glitter';
+                glitter.style.left = Math.random() * 100 + '%';
+                glitter.style.top = Math.random() * 100 + '%';
+                glitter.style.width = Math.random() * 4 + 2 + 'px';
+                glitter.style.height = glitter.style.width;
+                glitter.style.animationDelay = Math.random() * 2 + 's';
+                glitter.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                stardust.appendChild(glitter);
+            }
+        }
+
+        // Create constellation connection lines
+        function createConstellationLines() {
+            const constellation = document.getElementById('constellation');
+            
+            for (let i = 0; i < 15; i++) {
+                const line = document.createElement('div');
+                line.className = 'constellation-line';
+                line.style.left = Math.random() * 80 + '%';
+                line.style.top = Math.random() * 80 + '%';
+                line.style.width = Math.random() * 150 + 50 + 'px';
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                line.style.animationDelay = Math.random() * 4 + 's';
+                constellation.appendChild(line);
+            }
+        }
+
+        // Cosmic sorting algorithm
+        function cosmicSort(players, mode) {
+            return players.sort((a, b) => {
+                switch(mode) {
+                    case 'stellar':
+                        if (b.stellarRating !== a.stellarRating) return b.stellarRating - a.stellarRating;
+                        return b.credits - a.credits;
+                    case 'galactic':
+                        if (b.credits !== a.credits) return b.credits - a.credits;
+                        return b.score - a.score;
+                    case 'nebula':
+                        const aNebula = (a.cosmicResonance * 0.4) + (a.glitterPower * 0.3) + (a.streak * 0.3);
+                        const bNebula = (b.cosmicResonance * 0.4) + (b.glitterPower * 0.3) + (b.streak * 0.3);
+                        return bNebula - aNebula;
+                    default:
+                        return b.credits - a.credits;
+                }
+            });
+        }
+
+        // Update cosmic leaderboard
+        function updateCosmicLeaderboard() {
+            const leaderboard = document.getElementById('cosmicLeaderboard');
+            const sortedPlayers = cosmicSort([...cosmicPlayers], currentCosmicMode);
+            
+            leaderboard.innerHTML = sortedPlayers.map((player, index) => {
+                const rank = index + 1;
+                let orbClass = '';
+                let orbContent = '';
+                
+                if (rank === 1) {
+                    orbClass = 'bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 text-black';
+                    orbContent = '👑';
+                } else if (rank === 2) {
+                    orbClass = 'bg-gradient-to-br from-gray-300 via-gray-400 to-gray-500 text-black';
+                    orbContent = '🥈';
+                } else if (rank === 3) {
+                    orbClass = 'bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 text-white';
+                    orbContent = '🥉';
+                } else {
+                    orbClass = 'bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-500 text-white';
+                    orbContent = `#${rank}`;
+                }
+                
+                return `
+                    <div class="cosmic-card rounded-3xl p-8 relative">
+                        <div class="energy-flow" style="animation-delay: ${index * 0.5}s;"></div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-6">
+                                <div class="rank-orb ${orbClass}">
+                                    ${orbContent}
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-white mb-2">${player.name}</div>
+                                    <div class="text-lg text-cyan-400 mb-1">Level ${player.level} • ${player.constellation} Constellation</div>
+                                    <div class="text-sm text-purple-400">
+                                        ⭐ Stellar Rating: ${player.stellarRating}/10
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-right">
+                                <div class="quantum-stat mb-2">
+                                    <div class="text-3xl font-bold text-yellow-400">
+                                        💰 ${player.credits.toLocaleString()}
+                                    </div>
+                                </div>
+                                <div class="text-xl text-purple-400 mb-1">
+                                    🌟 ${player.score.toLocaleString()}
+                                </div>
+                                <div class="text-lg text-green-400">
+                                    🔥 ${player.streak} streak
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cosmic Metrics Grid -->
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="quantum-stat text-center p-3">
+                                <div class="text-xs text-gray-300 mb-1">Cosmic Resonance</div>
+                                <div class="text-xl font-bold text-blue-400">${player.cosmicResonance}%</div>
+                            </div>
+                            <div class="quantum-stat text-center p-3">
+                                <div class="text-xs text-gray-300 mb-1">Glitter Power</div>
+                                <div class="text-xl font-bold text-pink-400">${player.glitterPower}%</div>
+                            </div>
+                            <div class="quantum-stat text-center p-3">
+                                <div class="text-xs text-gray-300 mb-1">Weekly Credits</div>
+                                <div class="text-xl font-bold text-green-400">${player.weeklyCredits}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stellar Achievements -->
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            ${player.achievements.map(achievement => `
+                                <span class="stellar-badge">
+                                    ✨ ${achievement}
+                                </span>
+                            `).join('')}
+                        </div>
+                        
+                        <!-- Cosmic Actions -->
+                        <div class="flex justify-end space-x-3">
+                            <button onclick="sendCosmicBlessing(${player.id})" class="cosmic-btn px-6 py-2 rounded-lg">
+                                ✨ Cosmic Blessing
+                            </button>
+                            <button onclick="exploreConstellation(${player.id})" class="cosmic-btn px-6 py-2 rounded-lg">
+                                🌌 Explore
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update stellar champion
+        function updateStellarChampion() {
+            const stellarChampion = document.getElementById('stellarChampion');
+            const champion = cosmicPlayers.reduce((prev, current) => 
+                (prev.stellarRating > current.stellarRating) ? prev : current
+            );
+            
+            stellarChampion.innerHTML = `
+                <div class="cosmic-card rounded-xl p-6 text-white border-2 border-yellow-400">
+                    <div class="text-3xl font-bold mb-3">${champion.name}</div>
+                    <div class="text-xl mb-2">⭐ ${champion.stellarRating}/10 Rating</div>
+                    <div class="text-lg opacity-80 mb-4">${champion.constellation} Master</div>
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div>Streak: ${champion.streak}</div>
+                        <div>Level: ${champion.level}</div>
+                        <div>Resonance: ${champion.cosmicResonance}%</div>
+                        <div>Glitter: ${champion.glitterPower}%</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update galactic missions
+        function updateGalacticMissions() {
+            const missions = document.getElementById('galacticMissions');
+            const galacticMissions = [
+                { name: "Stardust Collection", progress: 740, target: 1000, reward: "Cosmic Multiplier", type: "stellar" },
+                { name: "Nebula Navigation", progress: 12, target: 15, reward: "Warp Drive", type: "galactic" },
+                { name: "Galaxy Exploration", progress: 89, target: 100, reward: "Universal Key", type: "nebula" }
+            ];
+            
+            missions.innerHTML = galacticMissions.map(mission => {
+                const progress = (mission.progress / mission.target) * 100;
+                const typeColors = {
+                    stellar: 'from-yellow-500 to-orange-500',
+                    galactic: 'from-purple-500 to-pink-500',
+                    nebula: 'from-blue-500 to-cyan-500'
+                };
+                
+                return `
+                    <div class="cosmic-card rounded-xl p-4">
+                        <div class="text-white font-bold text-lg mb-3">${mission.name}</div>
+                        <div class="bg-gray-700 rounded-full h-4 mb-3 overflow-hidden">
+                            <div class="bg-gradient-to-r ${typeColors[mission.type]} h-4 rounded-full transition-all duration-1000 relative" style="width: ${progress}%">
+                                <div class="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-300">
+                            <span>${mission.progress}/${mission.target}</span>
+                            <span>🎁 ${mission.reward}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update constellation map
+        function updateConstellationMap() {
+            const constellationMap = document.getElementById('constellationMap');
+            const constellations = ['Orion', 'Andromeda', 'Cassiopeia', 'Lyra', 'Draco'];
+            
+            constellationMap.innerHTML = `
+                <div class="grid grid-cols-2 gap-4">
+                    ${constellations.map((constellation, index) => `
+                        <div class="cosmic-card rounded-lg p-3 text-center">
+                            <div class="text-2xl mb-2">⭐</div>
+                            <div class="text-sm text-white font-semibold">${constellation}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Update cosmic analytics
+        function updateCosmicAnalytics() {
+            const analytics = document.getElementById('cosmicAnalytics');
+            const totalPlayers = cosmicPlayers.length;
+            const avgStellarRating = (cosmicPlayers.reduce((sum, p) => sum + p.stellarRating, 0) / totalPlayers).toFixed(1);
+            const avgGlitterPower = Math.round(cosmicPlayers.reduce((sum, p) => sum + p.glitterPower, 0) / totalPlayers);
+            
+            analytics.innerHTML = `
+                <div class="space-y-4">
+                    <div class="quantum-stat p-3 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-300">Active Champions</span>
+                            <span class="text-xl font-bold text-cyan-400">${totalPlayers}</span>
+                        </div>
+                    </div>
+                    <div class="quantum-stat p-3 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-300">Avg Stellar Rating</span>
+                            <span class="text-xl font-bold text-yellow-400">${avgStellarRating}/10</span>
+                        </div>
+                    </div>
+                    <div class="quantum-stat p-3 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-300">Galaxy Power</span>
+                            <span class="text-xl font-bold text-purple-400">${avgGlitterPower}%</span>
+                        </div>
+                    </div>
+                    <div class="cosmic-card p-4 rounded-lg border-2 border-green-400">
+                        <div class="text-sm text-center text-white">
+                            🌌 Galaxy Status: <span class="text-green-400 font-bold">THRIVING</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update cosmic weather
+        function updateCosmicWeather() {
+            const weatherStatus = document.getElementById('weatherStatus');
+            const weatherEvents = [
+                "Solar flares detected! Bonus multipliers active across the galaxy...",
+                "Cosmic storm approaching - enhanced glitter power for all champions!",
+                "Stellar alignment perfect - double experience points activated!",
+                "Nebula winds bringing rare stardust - collect while you can!",
+                "Galactic harmony achieved - all systems operating at peak efficiency!"
+            ];
+            
+            if (spaceWeatherActive) {
+                weatherStatus.textContent = weatherEvents[Math.floor(Math.random() * weatherEvents.length)];
+            }
+        }
+
+        // Cosmic mode activation
+        function activateCosmicMode(mode) {
+            currentCosmicMode = mode;
+            updateCosmicLeaderboard();
+            
+            // Visual feedback
+            const buttons = document.querySelectorAll('.cosmic-btn');
+            buttons.forEach(btn => btn.style.transform = 'scale(1)');
+            event.target.style.transform = 'scale(1.1)';
+        }
+
+        // Toggle space weather
+        function toggleSpaceWeather() {
+            spaceWeatherActive = !spaceWeatherActive;
+            const spaceWeather = document.getElementById('spaceWeather');
+            spaceWeather.style.display = spaceWeatherActive ? 'block' : 'none';
+            
+            if (spaceWeatherActive) {
+                updateCosmicWeather();
+            }
+        }
+
+        // Send cosmic blessing
+        function sendCosmicBlessing(playerId) {
+            const player = cosmicPlayers.find(p => p.id === playerId);
+            if (player) {
+                player.credits += 50;
+                player.stellarRating = Math.min(10, player.stellarRating + 0.1);
+                player.glitterPower = Math.min(100, player.glitterPower + 2);
+                alert(`✨ Cosmic Blessing sent to ${player.name}! They received 50 credits, +0.1 stellar rating, and +2 glitter power! 🌟`);
+                updateCosmicLeaderboard();
+            }
+        }
+
+        // Explore constellation
+        function exploreConstellation(playerId) {
+            const player = cosmicPlayers.find(p => p.id === playerId);
+            if (player) {
+                alert(`🌌 Exploring ${player.constellation} Constellation with ${player.name}!
+                
+⭐ Stellar Rating: ${player.stellarRating}/10
+🌟 Cosmic Resonance: ${player.cosmicResonance}%
+✨ Glitter Power: ${player.glitterPower}%
+🔥 Current Streak: ${player.streak} days
+🏆 Achievements: ${player.achievements.join(', ')}
+
+🚀 Ready for your next cosmic adventure!`);
+            }
+        }
+
+        // Simulate cosmic activity
+        function simulateCosmicActivity() {
+            const randomPlayer = cosmicPlayers[Math.floor(Math.random() * cosmicPlayers.length)];
+            const activities = [
+                () => { 
+                    randomPlayer.score += Math.floor(Math.random() * 300) + 200;
+                    randomPlayer.stellarRating = Math.min(10, randomPlayer.stellarRating + 0.05);
+                },
+                () => { 
+                    randomPlayer.credits += Math.floor(Math.random() * 150) + 100;
+                    randomPlayer.glitterPower = Math.min(100, randomPlayer.glitterPower + 1);
+                },
+                () => { 
+                    randomPlayer.streak += 1;
+                    randomPlayer.cosmicResonance = Math.min(100, randomPlayer.cosmicResonance + 1);
+                },
+                () => { 
+                    randomPlayer.weeklyCredits += Math.floor(Math.random() * 80) + 50;
+                }
+            ];
+            
+            activities[Math.floor(Math.random() * activities.length)]();
+        }
+
+        // Initialize cosmic systems when page loads
+        initCosmicSystems();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e738f743308022',t:'MTc1Nzc2MjA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
